@@ -1,0 +1,26 @@
+.container {
+  position: relative;
+  min-height: 100%;
+  width: 650px;
+}
+
+.ednipro_logo_container {
+  top: 20px;
+  left: 20px;
+  position: absolute;
+}
+
+.ednipro_logo {
+  width: 214px;
+  height: 59px;
+}
+
+.child_photo {
+  height: 99.6vh;
+}
+
+.buttons {
+  margin-top: -300px;
+  z-index: 999;
+  
+}
