@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./Header.module.css";
 import logo from "../../pages/Registration/images/ednipro_logo.svg";
 import people_profile from "./images/people_profile.svg";

@@ -5,6 +5,8 @@
 
 .logo {
   padding-top: 20px;
+  width: 229px;
+  height: 62px;
   padding-left: 20px;
 }
 
@@ -12,7 +14,6 @@
   display: flex;
   gap: 80px;
 }
-
 
 .text1 {
   font-size: 32px;
