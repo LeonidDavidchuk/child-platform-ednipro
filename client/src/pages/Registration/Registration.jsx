@@ -21,7 +21,7 @@ function Registration() {
       />
 
       <div className={styles.container__right}>
-        <a href="/registration">
+        <a href="/">
           <img
             className={styles["logo-top-right"]}
             src={ednipro_logo}

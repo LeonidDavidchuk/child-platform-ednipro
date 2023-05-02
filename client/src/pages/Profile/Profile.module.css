@@ -114,6 +114,10 @@
   padding: 0 10px;
 }
 
+.no_decoration {
+    text-decoration: none;
+}
+
 .programi {
   box-sizing: border-box;
   width: 440px;

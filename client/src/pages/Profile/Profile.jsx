@@ -8,7 +8,7 @@ import igri from "./images/igri.svg";
 import chitannya from "./images/chitannya.svg";
 
 function Profile() {
-  const [activeButton, setActiveButton] = useState(0); // Измените начальное состояние на 0
+  const [activeButton, setActiveButton] = useState(0);
 
   const handleClick = (index) => {
     setActiveButton(index);
@@ -35,15 +35,17 @@ function Profile() {
             >
               Стас
             </button>
-            <button
-              className={`${styles.deti_add} ${
-                activeButton === 2 ? styles.deti_add_active : ""
-              }`}
-              onClick={() => handleClick(2)}
-            >
-              <img src={plus} alt="plus" />
-              <span>Додати дитину</span>
-            </button>
+            <a className={styles.no_decoration} href="/formschild">
+              <button
+                className={`${styles.deti_add} ${
+                  activeButton === 2 ? styles.deti_add_active : ""
+                }`}
+                onClick={() => handleClick(2)}
+              >
+                <img src={plus} alt="plus" />
+                <span>Додати дитину</span>
+              </button>
+            </a>
           </div>
           <div
             className={`${styles.object} ${

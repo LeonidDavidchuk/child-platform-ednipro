@@ -15,11 +15,11 @@ function HeaderAccount() {
         </div>
 
         <div className={styles.right2}>
-            <img
-              className={styles.people}
-              src={people_logout}
-              alt="people logout"
-            />
+          <img
+            className={styles.people}
+            src={people_logout}
+            alt="people logout"
+          />
         </div>
       </div>
     </div>
