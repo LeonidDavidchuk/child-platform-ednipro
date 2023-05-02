@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useRef } from "react";
 import styles from "./FormsChild.module.css";
 import Layout from "../../components/Layout/Layout";
+import plus from "./images/plus.svg";
 
 function FormsChild() {
+  const inputRef = useRef();
+
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0];
+
+    if (file) {
+      console.log(file);
+    }
+  };
+
+  const handleClick = () => {
+    inputRef.current.click();
+  };
+
   return (
     <Layout>
       <div className={styles.full_height}>
@@ -47,13 +62,30 @@ function FormsChild() {
                 Хлопчик
               </label>
             </div>
+
+            <div className={styles.form1}>
+              <div className={styles.photo_text}>
+                <span className={styles.imya}>Фото</span>
+                <span>(за бажанням)</span>
+              </div>
+              <div className={styles.upload_image} onClick={handleClick}>
+                <input
+                  ref={inputRef}
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                  style={{ display: "none" }}
+                />
+                <img className={styles.plus_upload} src={plus} alt="plus" />
+                <span>Завантажити фото</span>
+              </div>
+            </div>
           </div>
           <div className={styles.button_container}>
-          <button className={styles.button_registration}>
-            Зареєструватися
-          </button>
-        </div>
-        
+            <button className={styles.button_registration}>
+              Додати дитину
+            </button>
+          </div>
         </div>
       </div>
     </Layout>

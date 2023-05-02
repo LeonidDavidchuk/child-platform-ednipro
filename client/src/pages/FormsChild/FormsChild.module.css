@@ -115,6 +115,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 1%;
+  margin-left: -6%;
 }
 
 .button_registration {
@@ -129,3 +130,28 @@
   cursor: pointer;
 }
 
+.upload_image {
+  box-sizing: border-box;
+  width: 174px;
+  height: 98px;
+  border: 2px solid #6a6a6a;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  gap: 15px;
+  cursor: pointer;
+}
+
+.plus_upload {
+  width: 24px;
+  height: 24px;
+}
+
+.photo_text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
