@@ -1,0 +1,199 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.button-object-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.buttons {
+  position: relative;
+  top: 0;
+  display: flex;
+  justify-content: flex-start;
+  width: 86%;
+  z-index: 4;
+  top: 2px;
+  height: fit-content;
+}
+
+.deti,
+.deti_add {
+  box-sizing: border-box;
+  width: 380px;
+  height: 77px;
+  background: #f1f1f1;
+  border: 2px solid #6a6a6a;
+  border-radius: 50px 50px 0px 0px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 77px;
+  font-size: 32px;
+  text-decoration: none;
+  color: #000000;
+}
+
+.deti_add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.deti_active,
+.deti_add_active {
+  background: #ffffff;
+  border-bottom: none;
+}
+
+.object {
+  box-sizing: border-box;
+  width: 86%;
+  height: 680px;
+  background: #ffffff;
+  border: 2px solid #000000;
+
+  border-radius: 0px 50px 50px 50px;
+}
+
+.object_full_top_border {
+  border-top: 2px solid #000;
+}
+
+.buttons .deti_active,
+.buttons .deti_add_active {
+  position: relative;
+  z-index: 1;
+}
+
+.object {
+  position: relative;
+  z-index: 0;
+}
+
+.photo_parametrs {
+  display: flex;
+  gap: 120px;
+  padding-left: 130px;
+  padding-top: 40px;
+}
+
+.profile_photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.parametr {
+  font-size: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.alert {
+  position: relative;
+  left: 41.5%;
+  height: 41px;
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ffe484;
+  background: #ffe484;
+  border-radius: 20.5px;
+  font-size: 32px;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.programi {
+  box-sizing: border-box;
+  width: 440px;
+  height: 365px;
+  background: #ffcebe;
+  border: 2px solid #fa855f;
+  border-radius: 44px;
+  font-size: 45px;
+  line-height: 46px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 50px;
+}
+
+.programi_text {
+  display: flex;
+  flex-direction: column;
+}
+
+.programi_img {
+  width: 129px;
+  height: 106px;
+}
+
+.igri {
+  box-sizing: border-box;
+  width: 440px;
+  height: 365px;
+  background: #bbffbd;
+  border: 2px solid #46e64b;
+  border-radius: 44px;
+  font-size: 45px;
+  line-height: 46px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.igri_text {
+  display: flex;
+  flex-direction: column;
+}
+
+.igri_img {
+  width: 129px;
+  height: 106px;
+}
+
+.chitannya {
+  box-sizing: border-box;
+  width: 440px;
+  height: 365px;
+  background: #74cdff;
+  border: 2px solid #25a7f0;
+  border-radius: 44px;
+  font-size: 45px;
+  line-height: 46px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 40px;
+}
+
+.chitannya_text {
+  display: flex;
+  flex-direction: column;
+}
+
+.chitannya_img {
+  width: 129px;
+  height: 106px;
+}
+
+.blocks {
+  padding-top: 4%;
+  display: flex;
+  justify-content: space-evenly;
+}

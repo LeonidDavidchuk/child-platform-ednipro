@@ -34,7 +34,7 @@ function FormsChild() {
                   value="male"
                 />
                 <span className={styles.radio_button}></span>
-                Жіноча
+                Дівчинка
               </label>
               <label className={styles.radio_label}>
                 <input
@@ -44,15 +44,16 @@ function FormsChild() {
                   value="female"
                 />
                 <span className={styles.radio_button}></span>
-                Чоловіча
+                Хлопчик
               </label>
             </div>
           </div>
-        </div>
-        <div className={styles.button_container}>
+          <div className={styles.button_container}>
           <button className={styles.button_registration}>
             Зареєструватися
           </button>
+        </div>
+        
         </div>
       </div>
     </Layout>

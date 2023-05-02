@@ -4,6 +4,7 @@ import Registration from "./pages/Registration/Registration.jsx";
 import Login from "./pages/Login/Login.jsx";
 import RegistrationParent from "./pages/RegistrationParent/RegistrationParent.jsx";
 import FormsChild from "./pages/FormsChild/FormsChild.jsx";
+import Profile from "./pages/Profile/Profile";
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/registrationparent" element={<RegistrationParent />} />
           <Route path="/formschild" element={<FormsChild />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/education_games" element={< />} />
         </Routes>
       </BrowserRouter>
     </div>

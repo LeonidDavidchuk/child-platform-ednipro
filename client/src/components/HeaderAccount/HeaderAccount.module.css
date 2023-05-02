@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  padding-top: 20px;
+  width: 229px;
+  height: 62px;
+  padding-left: 20px;
+}
+
+.right {
+  display: flex;
+  gap: 80px;
+}
+
+.text1 {
+  font-size: 32px;
+}
+
+.text2 {
+  font-size: 24px;
+}
+
+.texts {
+  width: 400px;
+  height: 57px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  align-items: flex-end;
+}
+
+.people {
+  width: 47px;
+  height: 47px;
+  padding-top: 25px;
+  padding-right: 20px;
+}

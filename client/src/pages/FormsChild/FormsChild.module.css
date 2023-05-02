@@ -114,11 +114,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 2%;
+  margin-top: 1%;
 }
 
-.button_registration {  
-  margin-left: 8%;
+.button_registration {
+  margin-left: 32%;
   box-sizing: border-box;
   width: 388px;
   height: 58px;
@@ -128,3 +128,4 @@
   font-size: 22px;
   cursor: pointer;
 }
+
