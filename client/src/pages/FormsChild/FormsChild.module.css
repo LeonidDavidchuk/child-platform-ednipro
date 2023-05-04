@@ -75,11 +75,15 @@
   display: inline-block;
   width: 34px;
   height: 34px;
-  border: 2px solid #25a7f0;
+  border: 2px solid #252525;
   cursor: pointer;
   border-radius: 50%;
   transition: background-color 0.2s, border-color 0.2s;
   position: relative;
+}
+
+.radio_input:checked + .radio_button {
+  border-color: #25a7f0;
 }
 
 .radio_button::before {
@@ -101,7 +105,7 @@
 
 .form5 {
   box-sizing: border-box;
-  width: 200px;
+  width: 180px;
   height: 58px;
   border: 2px solid #6a6a6a;
   border-radius: 30px;

@@ -1,3 +1,7 @@
+* {
+  color: #252525;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -181,7 +185,7 @@
   padding-top: 5%;
   display: flex;
   flex-wrap: wrap;
-  padding-bottom: 5%;
+  padding-bottom: 3%;
   justify-content: space-around;
   gap: 30px;
 }
@@ -197,14 +201,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 6%;
+  padding-bottom: 5%;
   transition: background 0.3s ease;
   margin-bottom: 6%;
 }
 
 .card:hover {
-  background: #bbffbd;
-  border: 2px solid #46e54b;
+  background: #ffcebe;
+  border: 2px solid #fa855f;
 }
 
 .card:hover .green_bar {
@@ -238,4 +242,42 @@
   width: 100%;
   margin-bottom: 10px;
   transition: background 0.3s ease;
+}
+
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 56px;
+  padding-left: 5.7%;
+  padding-top: 3%;
+}
+
+.filter_razdeli {
+  box-sizing: border-box;
+  width: 283px;
+  height: 67px;
+  background: #f1f1f1;
+  border: 2px solid #6a6a6a;
+  border-radius: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.3s ease, border 0.3s ease;
+}
+
+.filter_razdeli:hover {
+  background: #ffcebe;
+  border: 2px solid #fa855f;
+}
+
+.text_filter {
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 103.4%;
+}
+
+.active {
+  background: #ffcebe;
+  border: 2px solid #fa855f;
 }

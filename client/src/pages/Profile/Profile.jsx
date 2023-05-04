@@ -77,13 +77,15 @@ function Profile() {
                 />
               </div>
 
-              <div className={styles.igri}>
-                <div className={styles.igri_text}>
-                  <span>Розвиваючі</span>
-                  <span>ігри</span>
+              <a href="/education_games">
+                <div className={styles.igri}>
+                  <div className={styles.igri_text}>
+                    <span>Розвиваючі</span>
+                    <span>ігри</span>
+                  </div>
+                  <img className={styles.igri_img} src={igri} alt="igri" />
                 </div>
-                <img className={styles.igri_img} src={igri} alt="igri" />
-              </div>
+              </a>
 
               <div className={styles.chitannya}>
                 <div className={styles.chitannya_text}>

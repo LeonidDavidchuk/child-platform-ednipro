@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./Games.module.css";
+import styles from "./Programi.module.css";
 import LayoutProfile from "../../components/LayoutProfile/LayoutProfile";
 import baby from "../Profile/images/baby_photo_profile.jpeg";
 import plus from "../Profile/images/plus.svg";
@@ -11,9 +11,10 @@ import igri_active from "./images/igri_active.svg";
 import chitannya_active from "./images/chitannya_active.svg";
 import cat from "./images/cat.svg";
 
-function Games() {
+function Programi() {
   const [activeButton, setActiveButton] = useState(0);
-  const [activeSection, setActiveSection] = useState(1);
+  const [activeSection, setActiveSection] = useState(0);
+  const [activeFilter, setActiveFilter] = useState(null);
 
   const handleClick = (index) => {
     setActiveButton(index);
@@ -21,6 +22,16 @@ function Games() {
 
   const handleSectionClick = (index) => {
     setActiveSection(index);
+  };
+
+  const toggleFilter = (filter) => {
+    setActiveFilter((prevActiveFilter) => {
+      if (prevActiveFilter === filter) {
+        return null;
+      } else {
+        return filter;
+      }
+    });
   };
 
   return (
@@ -74,7 +85,6 @@ function Games() {
             </div>
 
             <div className={styles.razdeli}>
-            <a href="/programi">
               <div
                 className={`${styles.programi} ${
                   activeSection === 0 ? styles.programi_active : ""
@@ -87,20 +97,21 @@ function Games() {
                   alt="programi"
                 />
               </div>
-              </a>
 
-              <div
-                className={`${styles.programi} ${
-                  activeSection === 1 ? styles.igri_active : ""
-                }`}
-                onClick={() => handleSectionClick(1)}
-              >
-                <span>Розвиваючі ігри</span>
-                <img
-                  src={activeSection === 1 ? igri_active : igri_gray}
-                  alt="igri"
-                />
-              </div>
+              <a href="/education_games">
+                <div
+                  className={`${styles.programi} ${
+                    activeSection === 1 ? styles.igri_active : ""
+                  }`}
+                  onClick={() => handleSectionClick(1)}
+                >
+                  <span>Розвиваючі ігри</span>
+                  <img
+                    src={activeSection === 1 ? igri_active : igri_gray}
+                    alt="igri"
+                  />
+                </div>
+              </a>
 
               <div
                 className={`${styles.chitannya} ${
@@ -118,6 +129,63 @@ function Games() {
                 />
               </div>
             </div>
+
+            <div className={styles.filter}>
+              <div
+                className={`${styles.filter_razdeli} ${
+                  activeFilter === "Розвиток мовлення" ? styles.active : ""
+                }`}
+                onClick={() => toggleFilter("Розвиток мовлення")}
+              >
+                <span className={styles.text_filter}>Розвиток мовлення</span>
+              </div>
+
+              <div
+                className={`${styles.filter_razdeli} ${
+                  activeFilter === "Математика" ? styles.active : ""
+                }`}
+                onClick={() => toggleFilter("Математика")}
+              >
+                <span className={styles.text_filter}>Математика</span>
+              </div>
+
+              <div
+                className={`${styles.filter_razdeli} ${
+                  activeFilter === "Довкілля" ? styles.active : ""
+                }`}
+                onClick={() => toggleFilter("Довкілля")}
+              >
+                <span className={styles.text_filter}>Довкілля</span>
+              </div>
+
+              <div
+                className={`${styles.filter_razdeli} ${
+                  activeFilter === "Соціум" ? styles.active : ""
+                }`}
+                onClick={() => toggleFilter("Соціум")}
+              >
+                <span className={styles.text_filter}>Соціум</span>
+              </div>
+
+              <div
+                className={`${styles.filter_razdeli} ${
+                  activeFilter === "Мистецтво" ? styles.active : ""
+                }`}
+                onClick={() => toggleFilter("Мистецтво")}
+              >
+                <span className={styles.text_filter}>Мистецтво</span>
+              </div>
+
+              <div
+                className={`${styles.filter_razdeli} ${
+                  activeFilter === "Програма" ? styles.active : ""
+                }`}
+                onClick={() => toggleFilter("Програма")}
+              >
+                <span className={styles.text_filter}>Програма 6</span>
+              </div>
+            </div>
+
             <div className={styles.cards_container}>
               <a href="/education_games">
                 <div className={styles.card}>
@@ -192,4 +260,4 @@ function Games() {
   );
 }
 
-export default Games;
+export default Programi;

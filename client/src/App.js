@@ -6,6 +6,8 @@ import RegistrationParent from "./pages/RegistrationParent/RegistrationParent.js
 import FormsChild from "./pages/FormsChild/FormsChild.jsx";
 import Profile from "./pages/Profile/Profile";
 import Games from "./pages/Games/Games";
+import Programi from "./pages/Programi/Programi";
+import AlphabetOne from "./pages/Education/Alphabet/AlphabetOne";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route path="/formschild" element={<FormsChild />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/education_games" element={<Games />} />
+          <Route path="/programi" element={<Programi />} />
+          <Route path="/alphabet_one" element={<AlphabetOne />} />
         </Routes>
       </BrowserRouter>
     </div>
