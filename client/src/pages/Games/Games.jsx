@@ -74,19 +74,19 @@ function Games() {
             </div>
 
             <div className={styles.razdeli}>
-            <a href="/programi">
-              <div
-                className={`${styles.programi} ${
-                  activeSection === 0 ? styles.programi_active : ""
-                }`}
-                onClick={() => handleSectionClick(0)}
-              >
-                <span>Учбові програми</span>
-                <img
-                  src={activeSection === 0 ? programi_active : programi_gray}
-                  alt="programi"
-                />
-              </div>
+              <a href="/programi">
+                <div
+                  className={`${styles.programi} ${
+                    activeSection === 0 ? styles.programi_active : ""
+                  }`}
+                  onClick={() => handleSectionClick(0)}
+                >
+                  <span>Учбові програми</span>
+                  <img
+                    src={activeSection === 0 ? programi_active : programi_gray}
+                    alt="programi"
+                  />
+                </div>
               </a>
 
               <div
@@ -119,13 +119,13 @@ function Games() {
               </div>
             </div>
             <div className={styles.cards_container}>
-              <a href="/education_games">
+              <a href="/slova">
                 <div className={styles.card}>
                   <div className={styles.picture_in_card}>
                     <img src={cat} alt="cat" />
                   </div>
                   <div className={styles.down_card}>
-                    <span>Звуки звіряток</span>
+                    <span>Пропущені букви</span>
                   </div>
                 </div>
               </a>

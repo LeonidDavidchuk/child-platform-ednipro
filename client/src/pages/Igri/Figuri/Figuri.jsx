@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./Alphabet.module.css";
+import styles from "./Figuri.module.css";
 import LayoutProfile from "../../../components/LayoutProfile/LayoutProfile";
 import baby from "../../Profile/images/baby_photo_profile.jpeg";
 import plus from "../../Profile/images/plus.svg";
@@ -9,24 +9,11 @@ import chitannya_gray from "./images/chitannya_gray.svg";
 import programi_active from "./images/programi_active.svg";
 import igri_active from "./images/igri_active.svg";
 import chitannya_active from "./images/chitannya_active.svg";
-import arrow from "./images/arrow.svg";
+import FiguriGame from "./FiguriGame";
 
-import akula from "./assets/sounds/akula.mp3";
-
-import akula_image from "./assets/pictures/akula.svg";
-import begemot_image from "./assets/pictures/begemot.svg";
-import verblud_image from "./assets/pictures/verblud.svg";
-import golub_image from "./assets/pictures/golub.svg";
-import gudzik_image from "./assets/pictures/gudzik.svg";
-
-function AlphabetOne() {
+function Figuri() {
   const [activeButton, setActiveButton] = useState(0);
-  const [activeSection, setActiveSection] = useState(0);
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [selectedLetter, setSelectedLetter] = useState(null);
-  const [selectedWord, setSelectedWord] = useState(null);
-  const [selectedButton, setSelectedButton] = useState(null);
-  const [audio, setAudio] = useState(null);
+  const [activeSection, setActiveSection] = useState(1);
 
   const handleClick = (index) => {
     setActiveButton(index);
@@ -35,30 +22,6 @@ function AlphabetOne() {
   const handleSectionClick = (index) => {
     setActiveSection(index);
   };
-
-  const handleLetterClick = (sound, image, letter, word, index) => {
-    if (audio) {
-      audio.pause();
-      audio.currentTime = 0;
-    }
-
-    const newAudio = new Audio(sound);
-    newAudio.play();
-
-    setAudio(newAudio);
-    setSelectedImage(image);
-    setSelectedLetter(letter);
-    setSelectedWord(word);
-    setSelectedButton(index);
-  };
-
-  const alphabet = [
-    { letter: "А", sound: akula, image: akula_image, word: "Акула" },
-    { letter: "Б", sound: akula, image: begemot_image, word: "Бегемот" },
-    { letter: "В", sound: akula, image: verblud_image, word: "Верблюд" },
-    { letter: "Г", sound: akula, image: golub_image, word: "Голуб" },
-    { letter: "Ґ", sound: akula, image: gudzik_image, word: "Ґудзик" },
-  ];
 
   return (
     <LayoutProfile>
@@ -156,49 +119,7 @@ function AlphabetOne() {
                 />
               </div>
             </div>
-
-            <div className={styles.image_letter}>
-              {selectedLetter && (
-                <div className={styles.selectedLetter}>
-                  <span className={styles.big_letter}>{selectedLetter}</span>
-                  <span className={styles.big_word}>{selectedWord}</span>
-                </div>
-              )}
-              {selectedImage && (
-                <img
-                  className={styles.selectedImage}
-                  src={selectedImage}
-                  alt="Выбранная буква"
-                />
-              )}
-            </div>
-
-            <div className={styles.alphabet}>
-              {alphabet.map(({ letter, sound, image, word }, index) => {
-                return (
-                  <button
-                    key={letter}
-                    className={`${styles.letterButton} ${
-                      selectedButton === index ? styles.selected_letter : ""
-                    }`}
-                    onClick={() =>
-                      handleLetterClick(sound, image, letter, word, index)
-                    }
-                  >
-                    {letter}
-                  </button>
-                );
-              })}
-            </div>
-
-            <div className={styles.next_container}>
-              <a className={styles.no_decoration} href="/alphabet_two">
-                <div className={styles.next}>
-                  <span className={styles.text_on_next}>Наступні літери</span>
-                  <img className={styles.arrow} src={arrow} alt="arrow" />
-                </div>
-              </a>
-            </div>
+            <FiguriGame />
           </div>
         </div>
       </div>
@@ -206,4 +127,4 @@ function AlphabetOne() {
   );
 }
 
-export default AlphabetOne;
+export default Figuri;

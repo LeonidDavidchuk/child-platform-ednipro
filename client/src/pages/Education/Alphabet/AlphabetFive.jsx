@@ -10,16 +10,18 @@ import programi_active from "./images/programi_active.svg";
 import igri_active from "./images/igri_active.svg";
 import chitannya_active from "./images/chitannya_active.svg";
 import arrow from "./images/arrow.svg";
+import arrow_back from "./images/arrow_back.svg";
 
 import akula from "./assets/sounds/akula.mp3";
 
-import akula_image from "./assets/pictures/akula.svg";
-import begemot_image from "./assets/pictures/begemot.svg";
-import verblud_image from "./assets/pictures/verblud.svg";
-import golub_image from "./assets/pictures/golub.svg";
-import gudzik_image from "./assets/pictures/gudzik.svg";
+import riba from "./assets/pictures/riba.svg";
+import sir from "./assets/pictures/sir.svg";
+import tigr from "./assets/pictures/tigr.svg";
+import usmishka from "./assets/pictures/usmishka.svg";
+import farbi from "./assets/pictures/farbi.svg";
 
-function AlphabetOne() {
+
+function AlphabetFive() {
   const [activeButton, setActiveButton] = useState(0);
   const [activeSection, setActiveSection] = useState(0);
   const [selectedImage, setSelectedImage] = useState(null);
@@ -53,11 +55,11 @@ function AlphabetOne() {
   };
 
   const alphabet = [
-    { letter: "А", sound: akula, image: akula_image, word: "Акула" },
-    { letter: "Б", sound: akula, image: begemot_image, word: "Бегемот" },
-    { letter: "В", sound: akula, image: verblud_image, word: "Верблюд" },
-    { letter: "Г", sound: akula, image: golub_image, word: "Голуб" },
-    { letter: "Ґ", sound: akula, image: gudzik_image, word: "Ґудзик" },
+    { letter: "Р", sound: akula, image: riba, word: "Риба" },
+    { letter: "С", sound: akula, image: sir, word: "Сир" },
+    { letter: "Т", sound: akula, image: tigr, word: "Тигр" },
+    { letter: "У", sound: akula, image: usmishka, word: "Усмішка" },
+    { letter: "Ф", sound: akula, image: farbi, word: "Фарби" },
   ];
 
   return (
@@ -191,8 +193,15 @@ function AlphabetOne() {
               })}
             </div>
 
-            <div className={styles.next_container}>
-              <a className={styles.no_decoration} href="/alphabet_two">
+            <div className={styles.back_container}>
+              <a className={styles.no_underline} href="/alphabet_four">
+                <div className={styles.next}>
+                  <img src={arrow_back} alt="arrow back" />
+                  <span className={styles.text_on_next}>Попередні літери</span>
+                </div>
+              </a>
+
+              <a className={styles.no_underline} href="/alphabet_six">
                 <div className={styles.next}>
                   <span className={styles.text_on_next}>Наступні літери</span>
                   <img className={styles.arrow} src={arrow} alt="arrow" />
@@ -206,4 +215,4 @@ function AlphabetOne() {
   );
 }
 
-export default AlphabetOne;
+export default AlphabetFive;

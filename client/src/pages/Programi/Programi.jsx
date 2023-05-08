@@ -193,7 +193,7 @@ function Programi() {
                     <img src={cat} alt="cat" />
                   </div>
                   <div className={styles.down_card}>
-                    <span>Звуки звіряток</span>
+                    <span>Алфавіт</span>
                   </div>
                 </div>
               </a>
