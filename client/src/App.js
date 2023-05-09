@@ -16,6 +16,7 @@ import AlphabetSix from "./pages/Education/Alphabet/AlphabetSix";
 import AlphabetSeven from "./pages/Education/Alphabet/AlphabetSeven";
 import Slova from "./pages/Igri/Slova/Slova";
 import Figuri from "./pages/Igri/Figuri/Figuri";
+import Chitannya from "./pages/Chitannya/Chitannya";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/education_games" element={<Games />} />
           <Route path="/programi" element={<Programi />} />
+          <Route path="/chitannya" element={<Chitannya />} />
 
           <Route path="/alphabet_one" element={<AlphabetOne />} />
           <Route path="/alphabet_two" element={<AlphabetTwo />} />

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./Games.module.css";
+import styles from "./Chitannya.module.css";
 import LayoutProfile from "../../components/LayoutProfile/LayoutProfile";
 import baby from "../Profile/images/baby_photo_profile.jpeg";
 import plus from "../Profile/images/plus.svg";
@@ -9,11 +9,11 @@ import chitannya_gray from "./images/chitannya_gray.svg";
 import programi_active from "./images/programi_active.svg";
 import igri_active from "./images/igri_active.svg";
 import chitannya_active from "./images/chitannya_active.svg";
-import cat from "./images/cat.svg";
 
-function Games() {
+function Chitannya() {
   const [activeButton, setActiveButton] = useState(0);
-  const [activeSection, setActiveSection] = useState(1);
+  const [activeSection, setActiveSection] = useState(2);
+  const [activeFilter, setActiveFilter] = useState(null);
 
   const handleClick = (index) => {
     setActiveButton(index);
@@ -89,62 +89,36 @@ function Games() {
                 </div>
               </a>
 
-              <div
-                className={`${styles.programi} ${
-                  activeSection === 1 ? styles.igri_active : ""
-                }`}
-                onClick={() => handleSectionClick(1)}
-              >
-                <span>Розвиваючі ігри</span>
-                <img
-                  src={activeSection === 1 ? igri_active : igri_gray}
-                  alt="igri"
-                />
-              </div>
-
-              <a className={styles.no_underline} href="/chitannya">
+              <a href="/education_games">
                 <div
-                  className={`${styles.chitannya} ${
-                    activeSection === 2 ? styles.chitannya_active : ""
+                  className={`${styles.programi} ${
+                    activeSection === 1 ? styles.igri_active : ""
                   }`}
-                  onClick={() => handleSectionClick(2)}
+                  onClick={() => handleSectionClick(1)}
                 >
-                  <div className={styles.chitannya_text}>
-                    <span>Читання та</span>
-                    <span>аудіокниги</span>
-                  </div>
+                  <span>Розвиваючі ігри</span>
                   <img
-                    src={
-                      activeSection === 2 ? chitannya_active : chitannya_gray
-                    }
-                    alt="chitannya"
+                    src={activeSection === 1 ? igri_active : igri_gray}
+                    alt="igri"
                   />
                 </div>
               </a>
-            </div>
 
-            <div className={styles.cards_container}>
-              <a href="/slova">
-                <div className={styles.card}>
-                  <div className={styles.picture_in_card}>
-                    <img src={cat} alt="cat" />
-                  </div>
-                  <div className={styles.down_card}>
-                    <span>Пропущені букви</span>
-                  </div>
+              <div
+                className={`${styles.chitannya} ${
+                  activeSection === 2 ? styles.chitannya_active : ""
+                }`}
+                onClick={() => handleSectionClick(2)}
+              >
+                <div className={styles.chitannya_text}>
+                  <span>Читання та</span>
+                  <span>аудіокниги</span>
                 </div>
-              </a>
-
-              <a href="/figuri">
-                <div className={styles.card}>
-                  <div className={styles.picture_in_card}>
-                    <img src={cat} alt="cat" />
-                  </div>
-                  <div className={styles.down_card}>
-                    <span>Відповідності (фігури)</span>
-                  </div>
-                </div>
-              </a>
+                <img
+                  src={activeSection === 2 ? chitannya_active : chitannya_gray}
+                  alt="chitannya"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -153,4 +127,4 @@ function Games() {
   );
 }
 
-export default Games;
+export default Chitannya;

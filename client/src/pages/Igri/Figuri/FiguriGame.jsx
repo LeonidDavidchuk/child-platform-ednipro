@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./FiguriGame.module.css";
+import Confetti from "react-confetti";
 
 import krug from "./assets/krug.svg";
 import kvadrat from "./assets/kvadrat.svg";
@@ -14,48 +15,90 @@ import error from "./images/error.svg";
 
 function FiguriGame(props) {
   const allFigures = [
-    { name: "Круг", image: krug },
+    { name: "Коло", image: krug },
     { name: "Квадрат", image: kvadrat },
     { name: "Овал", image: oval },
     { name: "Прямокутник", image: pryamougolnik },
     { name: "Ромб", image: romb },
-    { name: "Треугольник", image: treugolnik },
-    { name: "Звезда", image: zvezda },
+    { name: "Трикутник", image: treugolnik },
+    { name: "Зірка", image: zvezda },
   ];
 
-  const getLevelFigures = (level) => {
-    return allFigures.slice(0, level + 2);
+  const getLevelFigures = () => {
+    const shuffledFigures = allFigures.sort(() => Math.random() - 0.5);
+    return shuffledFigures.slice(0, 3);
   };
 
   const [selectedFigureName, setSelectedFigureName] = useState("");
   const [level, setLevel] = useState(1);
-  const [figures, setFigures] = useState(getLevelFigures(level));
+  const [figures, setFigures] = useState(getLevelFigures());
+  const [gameOver, setGameOver] = useState(false);
   const [correctFigureName, setCorrectFigureName] = useState(
     figures[Math.floor(Math.random() * figures.length)].name
   );
   const [notification, setNotification] = useState(null);
   const [notificationText, setNotificationText] = useState(null);
 
+  useEffect(() => {
+    const getLevelFigures = () => {
+      const shuffledFigures = allFigures.sort(() => Math.random() - 0.5);
+      return shuffledFigures.slice(0, 3);
+    };
+
+    const newFigures = getLevelFigures();
+    setFigures(newFigures);
+    setCorrectFigureName(
+      newFigures[Math.floor(Math.random() * newFigures.length)].name
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [level]);
+
   const handleFigureClick = (figureName) => {
     setSelectedFigureName(figureName);
     if (figureName === correctFigureName) {
       setNotification(success);
       setNotificationText("Правильно");
-      setLevel(level + 1);
-      setFigures(getLevelFigures(level + 1));
-      setCorrectFigureName(
-        figures[Math.floor(Math.random() * figures.length)].name
-      );
+      setTimeout(() => {
+        if (level < 10) {
+          setLevel(level + 1);
+        } else {
+          setGameOver(true);
+        }
+        setNotification(null);
+        setNotificationText(null);
+      }, 1000);
     } else {
       setNotification(error);
-      setNotificationText("Не правильно");
+      setNotificationText("Спробуй ще раз");
     }
   };
+
+  const restartGame = () => {
+    setGameOver(false);
+    setLevel(1);
+  };
+
+  if (gameOver) {
+    return (
+      <div className={styles.gameOver}>
+        <div className={styles.confettiContainer}>
+          <Confetti gravity={0.3} />
+        </div>
+        <div>
+          <p>Вітаємо! Ви закінчили гру.</p>
+        </div>
+
+        <a className={styles.no_decoration} href="/education_games">
+          <div className={styles.gameOver_button}>Закрити гру</div>
+        </a>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.game}>
       <div className={styles.text_up}>
-        <span>Уровень {level}: Обери правильну фигуру</span>
+        <span>Рівень {level}: Обери правильну фигуру</span>
       </div>
       <div className={styles.figures}>
         {figures.map((figure, index) => (

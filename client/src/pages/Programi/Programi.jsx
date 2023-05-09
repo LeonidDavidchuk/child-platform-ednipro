@@ -9,7 +9,7 @@ import chitannya_gray from "./images/chitannya_gray.svg";
 import programi_active from "./images/programi_active.svg";
 import igri_active from "./images/igri_active.svg";
 import chitannya_active from "./images/chitannya_active.svg";
-import cat from "./images/cat.svg";
+import alphabet_image from "./images/alphabet_image.svg";
 
 function Programi() {
   const [activeButton, setActiveButton] = useState(0);
@@ -33,6 +33,20 @@ function Programi() {
       }
     });
   };
+
+  const cardsData = [
+    {
+      id: 1,
+      title: "Алфавіт",
+      category: "Розвиток мовлення",
+      link: "/alphabet_one",
+      image: alphabet_image,
+    },
+  ];
+
+  const filteredCards = activeFilter
+    ? cardsData.filter((card) => card.category === activeFilter)
+    : cardsData;
 
   return (
     <LayoutProfile>
@@ -113,21 +127,25 @@ function Programi() {
                 </div>
               </a>
 
-              <div
-                className={`${styles.chitannya} ${
-                  activeSection === 2 ? styles.chitannya_active : ""
-                }`}
-                onClick={() => handleSectionClick(2)}
-              >
-                <div className={styles.chitannya_text}>
-                  <span>Читання та</span>
-                  <span>аудіокниги</span>
+              <a className={styles.no_underline} href="/chitannya">
+                <div
+                  className={`${styles.chitannya} ${
+                    activeSection === 2 ? styles.chitannya_active : ""
+                  }`}
+                  onClick={() => handleSectionClick(2)}
+                >
+                  <div className={styles.chitannya_text}>
+                    <span>Читання та</span>
+                    <span>аудіокниги</span>
+                  </div>
+                  <img
+                    src={
+                      activeSection === 2 ? chitannya_active : chitannya_gray
+                    }
+                    alt="chitannya"
+                  />
                 </div>
-                <img
-                  src={activeSection === 2 ? chitannya_active : chitannya_gray}
-                  alt="chitannya"
-                />
-              </div>
+              </a>
             </div>
 
             <div className={styles.filter}>
@@ -175,83 +193,21 @@ function Programi() {
               >
                 <span className={styles.text_filter}>Мистецтво</span>
               </div>
-
-              <div
-                className={`${styles.filter_razdeli} ${
-                  activeFilter === "Програма" ? styles.active : ""
-                }`}
-                onClick={() => toggleFilter("Програма")}
-              >
-                <span className={styles.text_filter}>Програма 6</span>
-              </div>
             </div>
 
             <div className={styles.cards_container}>
-              <a href="/education_games">
-                <div className={styles.card}>
-                  <div className={styles.picture_in_card}>
-                    <img src={cat} alt="cat" />
+              {filteredCards.map((card) => (
+                <a key={card.id} href={card.link}>
+                  <div className={styles.card}>
+                    <div className={styles.picture_in_card}>
+                      <img src={card.image} alt="card" />
+                    </div>
+                    <div className={styles.down_card}>
+                      <span>{card.title}</span>
+                    </div>
                   </div>
-                  <div className={styles.down_card}>
-                    <span>Алфавіт</span>
-                  </div>
-                </div>
-              </a>
-
-              <a href="/education_games">
-                <div className={styles.card}>
-                  <div className={styles.picture_in_card}>
-                    <img src={cat} alt="cat" />
-                  </div>
-                  <div className={styles.down_card}>
-                    <span>Звуки звіряток</span>
-                  </div>
-                </div>
-              </a>
-
-              <a href="/education_games">
-                <div className={styles.card}>
-                  <div className={styles.picture_in_card}>
-                    <img src={cat} alt="cat" />
-                  </div>
-                  <div className={styles.down_card}>
-                    <span>Звуки звіряток</span>
-                  </div>
-                </div>
-              </a>
-
-              <a href="/education_games">
-                <div className={styles.card}>
-                  <div className={styles.picture_in_card}>
-                    <img src={cat} alt="cat" />
-                  </div>
-                  <div className={styles.down_card}>
-                    <span>Звуки звіряток</span>
-                  </div>
-                </div>
-              </a>
-
-              <a href="/education_games">
-                <div className={styles.card}>
-                  <div className={styles.picture_in_card}>
-                    <img src={cat} alt="cat" />
-                  </div>
-                  <div className={styles.down_card}>
-                    <span>Звуки звіряток</span>
-                  </div>
-                </div>
-              </a>
-
-              <a href="/education_games">
-                <div className={styles.card}>
-                  <div className={styles.picture_in_card}>
-                    <img src={cat} alt="cat" />
-                  </div>
-                  <div className={styles.down_card}>
-                    <span>Звуки звіряток</span>
-                  </div>
-                </div>
-              </a>
+                </a>
+              ))}
             </div>
           </div>
         </div>
