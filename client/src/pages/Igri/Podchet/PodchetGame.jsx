@@ -4,7 +4,8 @@ import Confetti from "react-confetti";
 import { Link } from "react-router-dom";
 
 import apples from "./images/apples.svg";
-import fishes from "./images/fishes.svg"
+import fishes from "./images/fishes.svg";
+import house from "./images/house.svg";
 
 import error from "./images/error.svg";
 import success from "./images/success.svg";
@@ -25,6 +26,14 @@ function PodchetGame(props) {
       correctAnswer: 7,
       image: fishes,
       textUp: "Скільки зелених рибок",
+    },
+
+    {
+      count: 5,
+      answers: [5, 3, 6, 4],
+      correctAnswer: 5,
+      image: house,
+      textUp: "Порахуй скільки поверхів у будівлі",
     },
   ];
 
