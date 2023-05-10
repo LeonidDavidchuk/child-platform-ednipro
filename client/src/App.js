@@ -44,6 +44,9 @@ function App() {
           <Route path="/slova" element={<Slova />} />
           <Route path="/figuri" element={<Figuri />} />
           <Route path="/podchet" element={<Podchet />} />
+          <Route path="/podchet" element={<Podchet />} />
+
+
 
         </Routes>
       </BrowserRouter>
