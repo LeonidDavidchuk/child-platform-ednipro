@@ -59,6 +59,7 @@ function FiguriGame(props) {
     if (figureName === correctFigureName) {
       setNotification(success);
       setNotificationText("Правильно");
+
       setTimeout(() => {
         if (level < 10) {
           setLevel(level + 1);
