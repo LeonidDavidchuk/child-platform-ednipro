@@ -75,12 +75,12 @@ function Game(props) {
   if (gameOver) {
     return (
       <div className={styles.gameOver}>
-        <Confetti gravity={0.3} />
-
         <div>
           <p>Вітаємо! Ви закінчили гру.</p>
         </div>
-
+        <div className={styles.confettiContainer}>
+          <Confetti gravity={0.3} />
+        </div>
         <Link
           className={`${styles.gameOver_button} ${styles.no_decoration}`}
           to="/education_games"

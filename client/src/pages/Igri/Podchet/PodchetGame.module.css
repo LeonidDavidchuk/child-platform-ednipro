@@ -88,7 +88,7 @@
 }
 
 .resultImageContainer {
-  padding-top:3%;
+  padding-top: 3%;
   display: flex;
   justify-content: center;
 }
@@ -128,4 +128,13 @@
   justify-content: center;
   display: flex;
 }
-  
+
+.confettiContainer {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
