@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./FiguriGame.module.css";
 import Confetti from "react-confetti";
+import { Link } from "react-router-dom";
 
 import krug from "./assets/krug.svg";
 import kvadrat from "./assets/kvadrat.svg";
@@ -81,16 +82,18 @@ function FiguriGame(props) {
   if (gameOver) {
     return (
       <div className={styles.gameOver}>
-        <div className={styles.confettiContainer}>
-          <Confetti gravity={0.3} />
-        </div>
+        <Confetti gravity={0.3} />
+
         <div>
           <p>Вітаємо! Ви закінчили гру.</p>
         </div>
 
-        <a className={styles.no_decoration} href="/education_games">
-          <div className={styles.gameOver_button}>Закрити гру</div>
-        </a>
+        <Link
+          className={`${styles.gameOver_button} ${styles.no_decoration}`}
+          to="/education_games"
+        >
+          Закрити гру
+        </Link>
       </div>
     );
   }
