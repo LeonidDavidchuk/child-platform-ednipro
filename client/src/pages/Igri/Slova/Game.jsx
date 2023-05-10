@@ -181,7 +181,7 @@ function Game(props) {
           <p>Вітаємо! Ви закінчили гру.</p>
         </div>
         <div className={styles.confettiContainer}>
-          <Confetti gravity={0.3} />
+          <Confetti gravity={0.05} />
         </div>
         <Link
           className={`${styles.gameOver_button} ${styles.no_decoration}`}
