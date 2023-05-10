@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import apples from "./images/apples.svg";
 import fishes from "./images/fishes.svg";
 import house from "./images/house.svg";
+import osminog from "./images/osminog.svg";
 
 import error from "./images/error.svg";
 import success from "./images/success.svg";
@@ -34,6 +35,14 @@ function PodchetGame(props) {
       correctAnswer: 5,
       image: house,
       textUp: "Порахуй скільки поверхів у будівлі",
+    },
+
+    {
+      count: 8,
+      answers: [5, 8, 12, 9],
+      correctAnswer: 8,
+      image: osminog,
+      textUp: "Скільки кінцівок у восьминога",
     },
   ];
 

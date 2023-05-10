@@ -61,7 +61,7 @@ function FiguriGame(props) {
       setNotificationText("Правильно");
 
       setTimeout(() => {
-        if (level < 1) {
+        if (level < 10) {
           setLevel(level + 1);
         } else {
           setGameOver(true);
