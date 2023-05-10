@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Game.module.css";
+import Confetti from "react-confetti";
+import { Link } from "react-router-dom";
 
 import akula from "../../Education/Alphabet/assets/pictures/akula.svg";
 import begemot from "../../Education/Alphabet/assets/pictures/begemot.svg";
@@ -31,6 +33,7 @@ function Game(props) {
   const [message, setMessage] = useState("");
   const [resultImage, setResultImage] = useState(null);
   const [currentWord, setCurrentWord] = useState(levels[currentLevel].word);
+  const [gameOver, setGameOver] = useState(false);
 
   const handleAnswerClick = (answer) => {
     const newWord = [...currentWord];
@@ -55,6 +58,10 @@ function Game(props) {
           setMessage("");
           setResultImage(null);
         }, 1500);
+      } else {
+        setTimeout(() => {
+          setGameOver(true);
+        }, 1500);
       }
     } else {
       setMessage("Спробуйте ще раз");
@@ -64,6 +71,25 @@ function Game(props) {
 
   const currentAnswers = levels[currentLevel].answers;
   const currentImage = levels[currentLevel].image;
+
+  if (gameOver) {
+    return (
+      <div className={styles.gameOver}>
+        <Confetti gravity={0.3} />
+
+        <div>
+          <p>Вітаємо! Ви закінчили гру.</p>
+        </div>
+
+        <Link
+          className={`${styles.gameOver_button} ${styles.no_decoration}`}
+          to="/education_games"
+        >
+          Закрити гру
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.game}>

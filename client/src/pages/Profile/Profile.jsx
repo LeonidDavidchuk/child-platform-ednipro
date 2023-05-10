@@ -65,17 +65,19 @@ function Profile() {
             </div>
 
             <div className={styles.blocks}>
-              <div className={styles.programi}>
-                <div className={styles.programi_text}>
-                  <span>Учбові</span>
-                  <span>програми</span>
+              <a href="/programi">
+                <div className={styles.programi}>
+                  <div className={styles.programi_text}>
+                    <span>Учбові</span>
+                    <span>програми</span>
+                  </div>
+                  <img
+                    className={styles.programi_img}
+                    src={programi}
+                    alt="programi"
+                  />
                 </div>
-                <img
-                  className={styles.programi_img}
-                  src={programi}
-                  alt="programi"
-                />
-              </div>
+              </a>
 
               <a href="/education_games">
                 <div className={styles.igri}>
@@ -87,17 +89,19 @@ function Profile() {
                 </div>
               </a>
 
-              <div className={styles.chitannya}>
-                <div className={styles.chitannya_text}>
-                  <span>Читання та</span>
-                  <span>аудіокниги</span>
+              <a href="/chitannya">
+                <div className={styles.chitannya}>
+                  <div className={styles.chitannya_text}>
+                    <span>Читання та</span>
+                    <span>аудіокниги</span>
+                  </div>
+                  <img
+                    className={styles.chitannya_img}
+                    src={chitannya}
+                    alt="chitannya"
+                  />
                 </div>
-                <img
-                  className={styles.chitannya_img}
-                  src={chitannya}
-                  alt="chitannya"
-                />
-              </div>
+              </a>
             </div>
           </div>
         </div>

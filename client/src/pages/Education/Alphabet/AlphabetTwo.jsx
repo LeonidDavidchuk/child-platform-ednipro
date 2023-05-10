@@ -113,6 +113,7 @@ function AlphabetTwo() {
             </div>
 
             <div className={styles.razdeli}>
+              <a href="/programi">
               <div
                 className={`${styles.programi} ${
                   activeSection === 0 ? styles.programi_active : ""
@@ -125,6 +126,7 @@ function AlphabetTwo() {
                   alt="programi"
                 />
               </div>
+              </a>
 
               <a href="/education_games">
                 <div
@@ -141,6 +143,7 @@ function AlphabetTwo() {
                 </div>
               </a>
 
+              <a className={styles.no_underline} href="/chitannya">
               <div
                 className={`${styles.chitannya} ${
                   activeSection === 2 ? styles.chitannya_active : ""
@@ -156,6 +159,7 @@ function AlphabetTwo() {
                   alt="chitannya"
                 />
               </div>
+              </a>
             </div>
 
             <div className={styles.image_letter}>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./Alphabet.module.css";
+import styles from "./Podchet.module.css";
 import LayoutProfile from "../../../components/LayoutProfile/LayoutProfile";
 import baby from "../../Profile/images/baby_photo_profile.jpeg";
 import plus from "../../Profile/images/plus.svg";
@@ -9,24 +9,11 @@ import chitannya_gray from "./images/chitannya_gray.svg";
 import programi_active from "./images/programi_active.svg";
 import igri_active from "./images/igri_active.svg";
 import chitannya_active from "./images/chitannya_active.svg";
-import arrow from "./images/arrow.svg";
-import arrow_back from "./images/arrow_back.svg";
+import PodchetGame from "./PodchetGame";
 
-import akula from "./assets/sounds/akula.mp3";
-
-import indik from "./assets/pictures/indik.svg";
-import izhak from "./assets/pictures/izhak.svg";
-import ioghurt from "./assets/pictures/ioghurt.svg";
-import kin from "./assets/pictures/kin.svg";
-
-function AlphabetThree() {
+function Podchet() {
   const [activeButton, setActiveButton] = useState(0);
-  const [activeSection, setActiveSection] = useState(0);
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [selectedLetter, setSelectedLetter] = useState(null);
-  const [selectedWord, setSelectedWord] = useState(null);
-  const [selectedButton, setSelectedButton] = useState(null);
-  const [audio, setAudio] = useState(null);
+  const [activeSection, setActiveSection] = useState(1);
 
   const handleClick = (index) => {
     setActiveButton(index);
@@ -35,30 +22,6 @@ function AlphabetThree() {
   const handleSectionClick = (index) => {
     setActiveSection(index);
   };
-
-  const handleLetterClick = (sound, image, letter, word, index) => {
-    if (audio) {
-      audio.pause();
-      audio.currentTime = 0;
-    }
-
-    const newAudio = new Audio(sound);
-    newAudio.play();
-
-    setAudio(newAudio);
-    setSelectedImage(image);
-    setSelectedLetter(letter);
-    setSelectedWord(word);
-    setSelectedButton(index);
-  };
-
-  const alphabet = [
-    { letter: "И", sound: akula },
-    { letter: "І", sound: akula, image: indik, word: "Індик" },
-    { letter: "Ї", sound: akula, image: izhak, word: "Їжак" },
-    { letter: "Й", sound: akula, image: ioghurt, word: "Йогурт" },
-    { letter: "К", sound: akula, image: kin, word: "Кінь" },
-  ];
 
   return (
     <LayoutProfile>
@@ -162,56 +125,7 @@ function AlphabetThree() {
                 </div>
               </a>
             </div>
-
-            <div className={styles.image_letter}>
-              {selectedLetter && (
-                <div className={styles.selectedLetter}>
-                  <span className={styles.big_letter}>{selectedLetter}</span>
-                  <span className={styles.big_word}>{selectedWord}</span>
-                </div>
-              )}
-              {selectedImage && (
-                <img
-                  className={styles.selectedImage}
-                  src={selectedImage}
-                  alt="Выбранная буква"
-                />
-              )}
-            </div>
-
-            <div className={styles.alphabet}>
-              {alphabet.map(({ letter, sound, image, word }, index) => {
-                return (
-                  <button
-                    key={letter}
-                    className={`${styles.letterButton} ${
-                      selectedButton === index ? styles.selected_letter : ""
-                    }`}
-                    onClick={() =>
-                      handleLetterClick(sound, image, letter, word, index)
-                    }
-                  >
-                    {letter}
-                  </button>
-                );
-              })}
-            </div>
-
-            <div className={styles.back_container}>
-              <a className={styles.no_underline} href="/alphabet_two">
-                <div className={styles.next}>
-                  <img src={arrow_back} alt="arrow back" />
-                  <span className={styles.text_on_next}>Попередні літери</span>
-                </div>
-              </a>
-
-              <a className={styles.no_underline} href="/alphabet_four">
-                <div className={styles.next}>
-                  <span className={styles.text_on_next}>Наступні літери</span>
-                  <img className={styles.arrow} src={arrow} alt="arrow" />
-                </div>
-              </a>
-            </div>
+            <PodchetGame />
           </div>
         </div>
       </div>
@@ -219,4 +133,4 @@ function AlphabetThree() {
   );
 }
 
-export default AlphabetThree;
+export default Podchet;

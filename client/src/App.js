@@ -17,6 +17,7 @@ import AlphabetSeven from "./pages/Education/Alphabet/AlphabetSeven";
 import Slova from "./pages/Igri/Slova/Slova";
 import Figuri from "./pages/Igri/Figuri/Figuri";
 import Chitannya from "./pages/Chitannya/Chitannya";
+import Podchet from "./pages/Igri/Podchet/Podchet";
 
 function App() {
   return (
@@ -42,6 +43,8 @@ function App() {
 
           <Route path="/slova" element={<Slova />} />
           <Route path="/figuri" element={<Figuri />} />
+          <Route path="/podchet" element={<Podchet />} />
+
         </Routes>
       </BrowserRouter>
     </div>

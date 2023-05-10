@@ -145,6 +145,17 @@ function Games() {
                   </div>
                 </div>
               </a>
+
+              <a href="/podchet">
+                <div className={styles.card}>
+                  <div className={styles.picture_in_card}>
+                    <img src={cat} alt="cat" />
+                  </div>
+                  <div className={styles.down_card}>
+                    <span>Рахуймо разом</span>
+                  </div>
+                </div>
+              </a>
             </div>
           </div>
         </div>

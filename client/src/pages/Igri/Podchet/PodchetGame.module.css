@@ -2,13 +2,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 55px;
-  justify-content: center;
   margin-top: 4%;
   padding-bottom: 6%;
 }
 
-.wordContainer {
+.textContainer {
+  margin-bottom: 4%;
+}
+
+.gameContent {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 200px;
+  justify-content: center;
+}
+
+.imageContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -32,8 +42,8 @@
 
 .letterButton {
   box-sizing: border-box;
-  width: 283px;
-  height: 165px;
+  width: 439px;
+  height: 132px;
   background: #f1f1f1;
   border: 2px solid #6a6a6a;
   border-radius: 44px;
@@ -63,12 +73,13 @@
 
 .answers {
   display: flex;
-  gap: 100px;
+  flex-direction: column;
+  gap: 40px;
   justify-items: center;
 }
 
 .messageContainer {
-  padding-top: 1%;
+  padding-top: 24px;
   display: flex;
   justify-content: center;
   font-weight: 500;
@@ -77,11 +88,10 @@
 }
 
 .resultImageContainer {
-  padding-top: 3%;
+  padding-top:3%;
   display: flex;
   justify-content: center;
 }
-
 .selected_letter {
   background: #bbffbd;
   border: 2px solid #46e64b;
@@ -118,3 +128,4 @@
   justify-content: center;
   display: flex;
 }
+  

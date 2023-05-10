@@ -107,18 +107,20 @@ function AlphabetSeven() {
             </div>
 
             <div className={styles.razdeli}>
-              <div
-                className={`${styles.programi} ${
-                  activeSection === 0 ? styles.programi_active : ""
-                }`}
-                onClick={() => handleSectionClick(0)}
-              >
-                <span>Учбові програми</span>
-                <img
-                  src={activeSection === 0 ? programi_active : programi_gray}
-                  alt="programi"
-                />
-              </div>
+              <a href="/programi">
+                <div
+                  className={`${styles.programi} ${
+                    activeSection === 0 ? styles.programi_active : ""
+                  }`}
+                  onClick={() => handleSectionClick(0)}
+                >
+                  <span>Учбові програми</span>
+                  <img
+                    src={activeSection === 0 ? programi_active : programi_gray}
+                    alt="programi"
+                  />
+                </div>
+              </a>
 
               <a href="/education_games">
                 <div
@@ -135,21 +137,25 @@ function AlphabetSeven() {
                 </div>
               </a>
 
-              <div
-                className={`${styles.chitannya} ${
-                  activeSection === 2 ? styles.chitannya_active : ""
-                }`}
-                onClick={() => handleSectionClick(2)}
-              >
-                <div className={styles.chitannya_text}>
-                  <span>Читання та</span>
-                  <span>аудіокниги</span>
+              <a href="/chitannya" className={styles.no_underline}>
+                <div
+                  className={`${styles.chitannya} ${
+                    activeSection === 2 ? styles.chitannya_active : ""
+                  }`}
+                  onClick={() => handleSectionClick(2)}
+                >
+                  <div className={styles.chitannya_text}>
+                    <span>Читання та</span>
+                    <span>аудіокниги</span>
+                  </div>
+                  <img
+                    src={
+                      activeSection === 2 ? chitannya_active : chitannya_gray
+                    }
+                    alt="chitannya"
+                  />
                 </div>
-                <img
-                  src={activeSection === 2 ? chitannya_active : chitannya_gray}
-                  alt="chitannya"
-                />
-              </div>
+              </a>
             </div>
 
             <div className={styles.image_letter}>
