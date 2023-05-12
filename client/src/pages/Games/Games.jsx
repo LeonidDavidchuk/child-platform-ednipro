@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./Games.module.css";
 import LayoutProfile from "../../components/LayoutProfile/LayoutProfile";
 import baby from "../Profile/images/baby_photo_profile.jpeg";
@@ -128,7 +129,8 @@ function Games() {
             </div>
 
             <div className={styles.cards_container}>
-              <a href="/slova">
+
+              <Link to ="/slova">
                 <div className={styles.card}>
                   <div className={styles.picture_in_card}>
                     <img src={card_slova} alt="slova" />
@@ -137,9 +139,9 @@ function Games() {
                     <span>Пропущені букви</span>
                   </div>
                 </div>
-              </a>
+              </Link>
 
-              <a href="/sloga">
+              <Link to="/sloga">
                 <div className={styles.card}>
                   <div className={styles.picture_in_card}>
                     <img src={cat} alt="cat" />
@@ -148,9 +150,9 @@ function Games() {
                     <span>Пропущені слога</span>
                   </div>
                 </div>
-              </a>
+              </Link>
 
-              <a href="/figuri">
+              <Link to = "/figuri">
                 <div className={styles.card}>
                   <div className={styles.picture_in_card}>
                     <img src={card_figuri} alt="card" />
@@ -159,9 +161,9 @@ function Games() {
                     <span>Відповідності (фігури)</span>
                   </div>
                 </div>
-              </a>
+              </Link>
 
-              <a href="/podchet">
+              <Link to ="/podchet">
                 <div className={styles.card}>
                   <div className={styles.picture_in_card}>
                     <img src={card_rahui} alt="card" />
@@ -170,7 +172,7 @@ function Games() {
                     <span>Рахуймо разом</span>
                   </div>
                 </div>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

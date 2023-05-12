@@ -6,15 +6,10 @@ import { Link } from "react-router-dom";
 import akula from "../../Education/Alphabet/assets/pictures/akula.svg";
 import begemot from "../../Education/Alphabet/assets/pictures/begemot.svg";
 import bochka from "./assets/bochka.svg";
-import buterbrod from "./assets/buterbrod.svg";
 import dveri from "./assets/dveri.svg";
-import ekskavator from "./assets/ekskavator.svg";
 import enot from "./assets/enot.svg";
 import gitara from "./assets/gitara.svg";
 import gudzik from "./assets/gudzik.svg";
-import ioghurt from "./assets/ioghurt.svg";
-import palac from "./assets/palac.svg";
-import vishnya from "./assets/vishnya.svg";
 import zhiraf from "./assets/zhiraf.svg";
 
 import error from "./images/error.svg";
@@ -46,14 +41,6 @@ function Game(props) {
     },
 
     {
-      word: ["В", "_ _", "н", "я"],
-      answers: ["ич", "иш", "иг"],
-      correctAnswer: "иш",
-      image: vishnya,
-      position: 1,
-    },
-
-    {
       word: ["Г", "і", "т", "_", "р", "а"],
       answers: ["а", "в", "и"],
       correctAnswer: "а",
@@ -78,14 +65,6 @@ function Game(props) {
     },
 
     {
-      word: ["Е", "к", "с", "к", "а", "_ _ _", "о", "р"],
-      answers: ["вут", "ват", "вот"],
-      correctAnswer: "ват",
-      image: ekskavator,
-      position: 5,
-    },
-
-    {
       word: ["Є", "_", "о", "т"],
       answers: ["н", "в", "а"],
       correctAnswer: "н",
@@ -101,29 +80,6 @@ function Game(props) {
       position: 4,
     },
 
-    {
-      word: ["П", "_ _", "а", "ц"],
-      answers: ["ул", "ал", "іл"],
-      correctAnswer: "ал",
-      image: palac,
-      position: 1,
-    },
-
-    {
-      word: ["Б", "у", "т", "е", "р", "б", "_ _ _"],
-      answers: ["рад", "род", "рід"],
-      correctAnswer: "род",
-      image: buterbrod,
-      position: 6,
-    },
-
-    {
-      word: ["Й", "о", "г", "у", "_ _"],
-      answers: ["рз", "рб", "рт"],
-      correctAnswer: "рт",
-      image: ioghurt,
-      position: 4,
-    },
   ];
 
   const [answer, setAnswer] = useState("");
