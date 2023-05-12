@@ -1,21 +1,17 @@
 import React, { useState } from "react";
-import styles from "./Games.module.css";
-import LayoutProfile from "../../components/LayoutProfile/LayoutProfile";
-import baby from "../Profile/images/baby_photo_profile.jpeg";
-import plus from "../Profile/images/plus.svg";
+import styles from "./Sloga.module.css";
+import LayoutProfile from "../../../components/LayoutProfile/LayoutProfile";
+import baby from "../../Profile/images/baby_photo_profile.jpeg";
+import plus from "../../Profile/images/plus.svg";
 import programi_gray from "./images/programi_gray.svg";
 import igri_gray from "./images/igri_gray.svg";
 import chitannya_gray from "./images/chitannya_gray.svg";
 import programi_active from "./images/programi_active.svg";
 import igri_active from "./images/igri_active.svg";
 import chitannya_active from "./images/chitannya_active.svg";
+import SlogaGame from "./SlogaGame";
 
-import cat from "./images/cat.svg";
-import card_slova from "./images/card_slova.svg";
-import card_rahui from "./images/card_rahui.svg";
-import card_figuri from "./images/card_figuri.svg";
-
-function Games() {
+function Sloga() {
   const [activeButton, setActiveButton] = useState(0);
   const [activeSection, setActiveSection] = useState(1);
 
@@ -60,6 +56,7 @@ function Games() {
               </button>
             </a>
           </div>
+
           <div
             className={`${styles.object} ${
               activeButton === null ? styles.object_full_top_border : ""
@@ -93,85 +90,40 @@ function Games() {
                 </div>
               </a>
 
-              <div
-                className={`${styles.programi} ${
-                  activeSection === 1 ? styles.igri_active : ""
-                }`}
-                onClick={() => handleSectionClick(1)}
-              >
-                <span>Розвиваючі ігри</span>
-                <img
-                  src={activeSection === 1 ? igri_active : igri_gray}
-                  alt="igri"
-                />
-              </div>
-
-              <a className={styles.no_underline} href="/chitannya">
+              <a href="/education_games">
                 <div
-                  className={`${styles.chitannya} ${
-                    activeSection === 2 ? styles.chitannya_active : ""
+                  className={`${styles.programi} ${
+                    activeSection === 1 ? styles.igri_active : ""
                   }`}
-                  onClick={() => handleSectionClick(2)}
+                  onClick={() => handleSectionClick(1)}
                 >
+                  <span>Розвиваючі ігри</span>
+                  <img
+                    src={activeSection === 1 ? igri_active : igri_gray}
+                    alt="igri"
+                  />
+                </div>
+              </a>
+
+              <div
+                className={`${styles.chitannya} ${
+                  activeSection === 2 ? styles.chitannya_active : ""
+                }`}
+                onClick={() => handleSectionClick(2)}
+              >
+                <a className={styles.no_underline} href="/chitannya">
                   <div className={styles.chitannya_text}>
                     <span>Читання та</span>
                     <span>аудіокниги</span>
                   </div>
-                  <img
-                    src={
-                      activeSection === 2 ? chitannya_active : chitannya_gray
-                    }
-                    alt="chitannya"
-                  />
-                </div>
-              </a>
+                </a>
+                <img
+                  src={activeSection === 2 ? chitannya_active : chitannya_gray}
+                  alt="chitannya"
+                />
+              </div>
             </div>
-
-            <div className={styles.cards_container}>
-              <a href="/slova">
-                <div className={styles.card}>
-                  <div className={styles.picture_in_card}>
-                    <img src={card_slova} alt="slova" />
-                  </div>
-                  <div className={styles.down_card}>
-                    <span>Пропущені букви</span>
-                  </div>
-                </div>
-              </a>
-
-              <a href="/sloga">
-                <div className={styles.card}>
-                  <div className={styles.picture_in_card}>
-                    <img src={cat} alt="cat" />
-                  </div>
-                  <div className={styles.down_card}>
-                    <span>Пропущені слога</span>
-                  </div>
-                </div>
-              </a>
-
-              <a href="/figuri">
-                <div className={styles.card}>
-                  <div className={styles.picture_in_card}>
-                    <img src={card_figuri} alt="card" />
-                  </div>
-                  <div className={styles.down_card}>
-                    <span>Відповідності (фігури)</span>
-                  </div>
-                </div>
-              </a>
-
-              <a href="/podchet">
-                <div className={styles.card}>
-                  <div className={styles.picture_in_card}>
-                    <img src={card_rahui} alt="card" />
-                  </div>
-                  <div className={styles.down_card}>
-                    <span>Рахуймо разом</span>
-                  </div>
-                </div>
-              </a>
-            </div>
+            <SlogaGame />
           </div>
         </div>
       </div>
@@ -179,4 +131,4 @@ function Games() {
   );
 }
 
-export default Games;
+export default Sloga;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./Game.module.css";
+import styles from "./SlogaGame.module.css";
 import Confetti from "react-confetti";
 import { Link } from "react-router-dom";
 
@@ -7,42 +7,38 @@ import akula from "../../Education/Alphabet/assets/pictures/akula.svg";
 import begemot from "../../Education/Alphabet/assets/pictures/begemot.svg";
 import bochka from "./assets/bochka.svg";
 import buterbrod from "./assets/buterbrod.svg";
-import dveri from "./assets/dveri.svg";
 import ekskavator from "./assets/ekskavator.svg";
-import enot from "./assets/enot.svg";
 import gitara from "./assets/gitara.svg";
-import gudzik from "./assets/gudzik.svg";
 import ioghurt from "./assets/ioghurt.svg";
 import palac from "./assets/palac.svg";
 import vishnya from "./assets/vishnya.svg";
-import zhiraf from "./assets/zhiraf.svg";
 
 import error from "./images/error.svg";
 import success from "./images/success.svg";
 
-function Game(props) {
+function SlogaGame(props) {
   const levels = [
     {
-      word: ["А", "к", "у", "_", "а"],
-      answers: ["л", "б", "я"],
-      correctAnswer: "л",
+      word: ["А", "к", "у", "_ _"],
+      answers: ["ла", "ба", "га"],
+      correctAnswer: "ла",
       image: akula,
       position: 3,
     },
     {
-      word: ["Б", "е", "г", "_", "м", "о", "т"],
-      answers: ["а", "е", "в"],
-      correctAnswer: "е",
+      word: ["Б", "е", "г", "_ _ _", "т"],
+      answers: ["емо", "ема", "ева"],
+      correctAnswer: "емо",
       image: begemot,
       position: 3,
     },
 
     {
-      word: ["Б", "о", "_", "к", "а"],
-      answers: ["г", "т", "ч"],
-      correctAnswer: "ч",
+      word: ["Б", "_ _", "к", "а"],
+      answers: ["оч", "от", "ов"],
+      correctAnswer: "оч",
       image: bochka,
-      position: 2,
+      position: 1,
     },
 
     {
@@ -54,27 +50,11 @@ function Game(props) {
     },
 
     {
-      word: ["Г", "і", "т", "_", "р", "а"],
-      answers: ["а", "в", "и"],
-      correctAnswer: "а",
+      word: ["Г", "і", "_ _", "р", "а"],
+      answers: ["та", "да", "ва"],
+      correctAnswer: "та",
       image: gitara,
-      position: 3,
-    },
-
-    {
-      word: ["Ґ", "_", "д", "з", "и", "к"],
-      answers: ["я", "б", "у"],
-      correctAnswer: "у",
-      image: gudzik,
-      position: 1,
-    },
-
-    {
-      word: ["_", "в", "е", "р", "і"],
-      answers: ["Д", "Я", "В"],
-      correctAnswer: "Д",
-      image: dveri,
-      position: 0,
+      position: 2,
     },
 
     {
@@ -83,22 +63,6 @@ function Game(props) {
       correctAnswer: "ват",
       image: ekskavator,
       position: 5,
-    },
-
-    {
-      word: ["Є", "_", "о", "т"],
-      answers: ["н", "в", "а"],
-      correctAnswer: "н",
-      image: enot,
-      position: 1,
-    },
-
-    {
-      word: ["Ж", "и", "р", "а", "_"],
-      answers: ["а", "л", "ф"],
-      correctAnswer: "ф",
-      image: zhiraf,
-      position: 4,
     },
 
     {
@@ -242,4 +206,4 @@ function Game(props) {
   );
 }
 
-export default Game;
+export default SlogaGame;

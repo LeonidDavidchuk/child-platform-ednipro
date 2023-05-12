@@ -33,6 +33,33 @@ function Registration() {
           <div className={styles.registration_text}>
             <p>Реєстрація</p>
           </div>
+
+          <div>
+            <div className={styles.gender_selector}>
+              <span className={styles.role}>Роль: </span>
+              <label className={styles.radio_label}>
+                <input
+                  className={styles.radio_input}
+                  type="radio"
+                  name="gender"
+                  value="male"
+                />
+                <span className={styles.radio_button}></span>
+                Батьки
+              </label>
+              <label className={styles.radio_label}>
+                <input
+                  className={styles.radio_input}
+                  type="radio"
+                  name="gender"
+                  value="female"
+                />
+                <span className={styles.radio_button}></span>
+                Вихователь  
+              </label>
+            </div>
+          </div>
+
           <div className={styles.forms_all}>
             <div className={styles.forms}>
               <input

@@ -199,7 +199,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 6%;
+  padding-bottom: 20%;
   transition: background 0.3s ease;
   margin-bottom: 6%;
 }

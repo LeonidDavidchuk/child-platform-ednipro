@@ -7,6 +7,10 @@ import apples from "./images/apples.svg";
 import fishes from "./images/fishes.svg";
 import house from "./images/house.svg";
 import osminog from "./images/osminog.svg";
+import level_pencil from "./images/level_pencil.svg";
+
+import blue_pencil from "./images/blue_pencil.svg";
+import red_pencil from "./images/red_pencil.svg";
 
 import error from "./images/error.svg";
 import success from "./images/success.svg";
@@ -43,6 +47,17 @@ function PodchetGame(props) {
       correctAnswer: 8,
       image: osminog,
       textUp: "Скільки кінцівок у восьминога",
+    },
+
+    {
+      count: 2,
+      answers: [
+        { img: red_pencil, value: 1 },
+        { img: blue_pencil, value: 2 },
+      ],
+      correctAnswer: 2,
+      image: level_pencil,
+      textUp: "Яких олівців більше?",
     },
   ];
 
@@ -115,27 +130,39 @@ function PodchetGame(props) {
         </div>
         <form onSubmit={handleSubmit}>
           <div className={styles.answers}>
-            {currentAnswers.map((answerOption, index) => (
-              <button
-                key={index}
-                className={`${styles.letterButton} ${
-                  answerOption === answer ? styles.selected_letter : ""
-                }`}
-                onClick={() => handleAnswerClick(answerOption)}
-              >
-                {answerOption}
-              </button>
-            ))}
+            {currentAnswers.map((answerOption, index) =>
+              currentLevel !== 4 ? (
+                <button
+                  key={index}
+                  className={`${styles.letterButton} ${
+                    answerOption === answer ? styles.selected : ""
+                  }`}
+                  onClick={() => handleAnswerClick(answerOption)}
+                >
+                  {answerOption}
+                </button>
+              ) : (
+                <button
+                  key={index}
+                  className={`${styles.imageButton} ${
+                    answerOption.value === answer ? styles.selected : ""
+                  }`}
+                  onClick={() => handleAnswerClick(answerOption.value)}
+                >
+                  <img className={styles.image_answer} src={answerOption.img} alt="" />
+                </button>
+              )
+            )}
           </div>
         </form>
       </div>
-      {resultImage && (
-        <div className={styles.resultImageContainer}>
-          <img src={resultImage} alt="" />
-        </div>
-      )}
-      <div className={styles.messageContainer}>
-        <div className={styles.message}>{message}</div>
+      <div className={styles.feedbackContainer}>
+        {message && (
+          <div className={styles.message}>
+            <img className={styles.resultImage} src={resultImage} alt="" />
+            <span>{message}</span>
+          </div>
+        )}
       </div>
     </div>
   );

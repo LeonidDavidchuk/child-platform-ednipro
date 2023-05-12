@@ -18,6 +18,7 @@ import Slova from "./pages/Igri/Slova/Slova";
 import Figuri from "./pages/Igri/Figuri/Figuri";
 import Chitannya from "./pages/Chitannya/Chitannya";
 import Podchet from "./pages/Igri/Podchet/Podchet";
+import Sloga from "./pages/Igri/Sloga/Sloga";
 
 function App() {
   return (
@@ -42,8 +43,10 @@ function App() {
           <Route path="/alphabet_seven" element={<AlphabetSeven />} />
 
           <Route path="/slova" element={<Slova />} />
+          <Route path="/sloga" element={<Sloga />} />
           <Route path="/figuri" element={<Figuri />} />
           <Route path="/podchet" element={<Podchet />} />
+
 
 
 
