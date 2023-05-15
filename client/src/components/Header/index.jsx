@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Header.module.css";
 import logo from "../../pages/Registration/images/ednipro_logo.svg";
-import people_profile from "./images/people_profile.svg";
+import peopleProfile from "./images/people_profile.svg";
 
 function Header() {
   return (
@@ -17,7 +17,7 @@ function Header() {
         <div className={styles.right2}>
           <img
             className={styles.people}
-            src={people_profile}
+            src={peopleProfile}
             alt="people profile"
           />
         </div>

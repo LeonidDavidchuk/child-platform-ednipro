@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./HeaderAccount.module.css";
 import logo from "../../pages/Registration/images/ednipro_logo.svg";
-import people_logout from "./images/people_logout.svg";
+import peopleLogout from "./images/people_logout.svg";
 
 function HeaderAccount() {
   return (
@@ -17,7 +17,7 @@ function HeaderAccount() {
         <div className={styles.right2}>
           <img
             className={styles.people}
-            src={people_logout}
+            src={peopleLogout}
             alt="people logout"
           />
         </div>
