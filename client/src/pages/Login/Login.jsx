@@ -1,11 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Login.module.css";
 import ednipro_logo from "../Registration/images/ednipro_logo.svg";
 import child from "../Registration/images/child.svg";
 import child_mobile from "../Registration/images/child_mobile.svg";
 import child_tablet from "../Registration/images/child_tablet.svg";
 
+import { useNavigate } from "react-router-dom";
+import api from "../../api";
+
 function Login() {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setErrorMessage("");
+
+    try {
+      const response = await api.post("/user/login", formData);
+
+      if (response.status === 200) {
+        localStorage.setItem("token", response.data.token);
+        navigate("/registrationparent");
+      } else {
+        setErrorMessage("Помилка входу");
+      }
+    } catch (error) {
+      if (error.response) {
+        setErrorMessage("Помилка входу");
+      } else {
+        setErrorMessage("Помилка входу");
+      }
+    }
+  };
+
   return (
     <div className={styles.container}>
       <img src={child} className={styles.child_photo} alt="child" />
@@ -32,27 +70,41 @@ function Login() {
           <div className={styles.registration_text}>
             <p>Авторизація</p>
           </div>
-          <div className={styles.forms_all}>
-            <div className={styles.forms}>
-              <input
-                className={styles.form}
-                type="text"
-                placeholder="E-mail : "
-              />
-              <input
-                className={styles.form}
-                type="text"
-                placeholder="Пароль : "
-              />
+          <form onSubmit={handleSubmit}>
+            <div className={styles.forms_all}>
+              <div className={styles.forms}>
+                <input
+                  className={styles.form}
+                  type="text"
+                  placeholder="E-mail : "
+                  name="email"
+                  onChange={handleChange}
+                />
+                <input
+                  className={styles.form}
+                  type="text"
+                  placeholder="Пароль : "
+                  name="password"
+                  onChange={handleChange}
+                />
+              </div>
+              <div className={styles.remember_password}>
+                <input type="checkbox" />
+                <label>Запам'ятати мене</label>
+              </div>
+              <div className={styles.form2}>
+                <button className={styles.button_registration} type="submit">
+                  {" "}
+                  Увійти{" "}
+                </button>
+              </div>
             </div>
-            <div className={styles.remember_password}>
-              <input type="checkbox" />
-              <label>Запам'ятати мене</label>
+            <div className={styles["error-message-container"]}>
+              {errorMessage && (
+                <div className={styles["error-message"]}>{errorMessage}</div>
+              )}
             </div>
-            <div className={styles.form2}>
-              <button className={styles.button_registration}> Увійти </button>
-            </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>

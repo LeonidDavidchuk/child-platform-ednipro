@@ -152,6 +152,18 @@
   background-color: #25a7f0;
 }
 
+.error-message-container {
+  min-height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-message {
+  color: red;
+  font-size: 22px;
+}
+
 @media (max-width: 1024px) {
   .child_photo {
     height: 768px;

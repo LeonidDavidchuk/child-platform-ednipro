@@ -90,6 +90,19 @@
   cursor: pointer;
 }
 
+.error-message-container {
+  min-height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 3%;
+}
+
+.error-message {
+  color: red;
+  font-size: 22px;
+}
+
 @media (max-width: 2560px) {
   .child_mobile {
     display: none;

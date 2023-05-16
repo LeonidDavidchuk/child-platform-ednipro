@@ -6,6 +6,7 @@ import baby from "./images/baby_photo_profile.jpeg";
 import programi from "./images/programi.svg";
 import igri from "./images/igri.svg";
 import chitannya from "./images/chitannya.svg";
+import withAuth from "../../components/WithAuth/WithAuth";
 
 function Profile() {
   const [activeButton, setActiveButton] = useState(0);
@@ -110,4 +111,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default withAuth(Profile);

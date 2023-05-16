@@ -45,3 +45,7 @@
   width: 31px;
   height: 31px;
 }
+
+.no_underline {
+  text-decoration: none;
+}

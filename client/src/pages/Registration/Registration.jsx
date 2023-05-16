@@ -1,11 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Registration.module.css";
 import ednipro_logo from "../Registration/images/ednipro_logo.svg";
 import child from "../Registration/images/child.svg";
 import child_mobile from "../Registration/images/child_mobile.svg";
 import child_tablet from "../Registration/images/child_tablet.svg";
 
+import { useNavigate } from "react-router-dom";
+import api from "../../api";
+
 function Registration() {
+  const [formData, setFormData] = useState({
+    email: "",
+    firstName: "",
+    lastName: "",
+    password: "",
+  });
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleChangeFullName = (e) => {
+    const [firstName, lastName] = e.target.value.split(" ");
+    setFormData({ ...formData, firstName, lastName });
+  };
+  console.log(formData);
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setErrorMessage("");
+
+    try {
+      const response = await api.post(
+        "/user/register",
+        formData
+      );
+
+      if (response.status === 201) {
+        localStorage.setItem("token", response.data.token);
+        navigate("/registrationparent");
+      } else {
+        setErrorMessage(response.data.message || "Помилка реєстрації");
+      }
+    } catch (error) {
+      if (error.response) {
+        setErrorMessage(error.response.data.message || "Помилка реєстрації");
+      } else {
+        setErrorMessage("Помилка реєстрації");
+      }
+    }
+  };
+
   return (
     <div className={styles.container}>
       <img src={child} className={styles.child_photo} alt="child" />
@@ -34,56 +81,42 @@ function Registration() {
             <p>Реєстрація</p>
           </div>
 
-          <div>
-            <div className={styles.gender_selector}>
-              <span className={styles.role}>Роль: </span>
-              <label className={styles.radio_label}>
+          <form onSubmit={handleSubmit}>
+            <div className={styles.forms_all}>
+              <div className={styles.forms}>
                 <input
-                  className={styles.radio_input}
-                  type="radio"
-                  name="gender"
-                  value="male"
+                  className={styles.form}
+                  type="text"
+                  name="fullName"
+                  placeholder="Прізвище та Ім'я "
+                  onChange={handleChangeFullName}
                 />
-                <span className={styles.radio_button}></span>
-                Батьки
-              </label>
-              <label className={styles.radio_label}>
                 <input
-                  className={styles.radio_input}
-                  type="radio"
-                  name="gender"
-                  value="female"
+                  className={styles.form}
+                  type="password"
+                  name="password"
+                  placeholder="Пароль : "
+                  onChange={handleChange}
                 />
-                <span className={styles.radio_button}></span>
-                Вихователь  
-              </label>
+              </div>
+              <div className={styles.form2}>
+                <input
+                  className={styles.form}
+                  type="email"
+                  name="email"
+                  placeholder="E-mail : "
+                  onChange={handleChange}
+                />
+                <button className={styles.button_registration} type="submit">
+                  Зареєструватися
+                </button>
+              </div>
             </div>
-          </div>
-
-          <div className={styles.forms_all}>
-            <div className={styles.forms}>
-              <input
-                className={styles.form}
-                type="text"
-                placeholder="Прізвище та Ім'я "
-              />
-              <input
-                className={styles.form}
-                type="text"
-                placeholder="Пароль : "
-              />
-            </div>
-            <div className={styles.form2}>
-              <input
-                className={styles.form}
-                type="text"
-                placeholder="E-mail : "
-              />
-              <button className={styles.button_registration}>
-                {" "}
-                Зареєструватися{" "}
-              </button>
-            </div>
+          </form>
+          <div className={styles["error-message-container"]}>
+            {errorMessage && (
+              <div className={styles["error-message"]}>{errorMessage}</div>
+            )}
           </div>
         </div>
       </div>
