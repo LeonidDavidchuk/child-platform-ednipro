@@ -1,8 +1,8 @@
 import React, { useState } from "react";
+import { useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import styles from "./Cards.module.css";
 import LayoutProfile from "../../components/LayoutProfile/LayoutProfile";
-import baby from "../Profile/images/baby_photo_profile.jpeg";
 import plus from "../Profile/images/plus.svg";
 import programi_gray from "./images/programi_gray.svg";
 import igri_gray from "./images/igri_gray.svg";
@@ -11,20 +11,38 @@ import programi_active from "./images/programi_active.svg";
 import igri_active from "./images/igri_active.svg";
 import chitannya_active from "./images/chitannya_active.svg";
 import alphabet_image from "./images/alphabet_image.svg";
+import withAuth from "../../components/WithAuth/WithAuth";
+import { UserContext } from "../../UserContext";
 
 import cat from "./images/cat.svg";
 import card_slova from "./images/card_slova.svg";
 import card_rahui from "./images/card_rahui.svg";
 import card_figuri from "./images/card_figuri.svg";
 
-function Programi() {
+function Cards() {
   const { id } = useParams();
   const [activeButton, setActiveButton] = useState(0);
   const [activeSection, setActiveSection] = useState(+id || 0);
   const [activeFilter, setActiveFilter] = useState(null);
 
+  const { user } = useContext(UserContext);
+  const firstName = user?.firstName || "User";
+
   const handleClick = (index) => {
     setActiveButton(index);
+  };
+
+  const children = user?.Children?.length ? user?.Children[activeButton] : [];
+  const canAddMoreChildren = user?.Children?.length < 4;
+
+  const getGender = (sexId) => {
+    if (sexId === 1) {
+      return "Хлопчик";
+    } else if (sexId === 2) {
+      return "Дівчинка";
+    } else {
+      return "";
+    }
   };
 
   const handleSectionClick = (index) => {
@@ -162,33 +180,32 @@ function Programi() {
       <div className={styles.container}>
         <div className={styles["button-object-wrapper"]}>
           <div className={styles.buttons}>
-            <button
-              className={`${styles.deti} ${
-                activeButton === 0 ? styles.deti_active : ""
-              }`}
-              onClick={() => handleClick(0)}
-            >
-              Леонид
-            </button>
-            <button
-              className={`${styles.deti} ${
-                activeButton === 1 ? styles.deti_active : ""
-              }`}
-              onClick={() => handleClick(1)}
-            >
-              Стас
-            </button>
-            <a className={styles.no_underline} href="/formschild">
+            {user?.Children?.map((child, index) => (
               <button
-                className={`${styles.deti_add} ${
-                  activeButton === 2 ? styles.deti_add_active : ""
+                key={index}
+                className={`${styles.deti} ${
+                  activeButton === index ? styles.deti_active : ""
                 }`}
-                onClick={() => handleClick(2)}
+                onClick={() => handleClick(index)}
               >
-                <img src={plus} alt="plus" />
-                <span>Додати дитину</span>
+                {child.firstName}
               </button>
-            </a>
+            ))}
+            {canAddMoreChildren && (
+              <a className={styles.no_underline} href="/formschild">
+                <button
+                  className={`${styles.deti_add} ${
+                    activeButton === user?.Children?.length
+                      ? styles.deti_add_active
+                      : ""
+                  }`}
+                  onClick={() => handleClick(user?.Children?.length)}
+                >
+                  <img src={plus} alt="plus" />
+                  <span>Додати дитину</span>
+                </button>
+              </a>
+            )}
           </div>
           <div
             className={`${styles.object} ${
@@ -196,12 +213,18 @@ function Programi() {
             }`}
           >
             <div className={styles.photo_parametrs}>
-              <img className={styles.profile_photo} src={baby} alt="baby" />
+              <img
+                className={styles.profile_photo}
+                src={children?.photo}
+                alt="baby"
+              />
 
               <div className={styles.parametr}>
-                <span>Давидчук Леонид</span>
-                <span>Хлопчик</span>
-                <span>20 лет</span>
+                <span>
+                  {children?.lastName} {children?.firstName}
+                </span>
+                <span>{getGender(children?.sexId)}</span>
+                <span>{children?.age} років</span>
               </div>
 
               <div className={styles.alert}>Повідомлення</div>
@@ -259,4 +282,4 @@ function Programi() {
   );
 }
 
-export default Programi;
+export default withAuth(Cards);

@@ -7,7 +7,7 @@ import Login from "./pages/Login/Login.jsx";
 import RegistrationParent from "./pages/RegistrationParent/RegistrationParent.jsx";
 import FormsChild from "./pages/FormsChild/FormsChild.jsx";
 import Profile from "./pages/Profile/Profile";
-import Programi from "./pages/Cards/Cards";
+import Cards from "./pages/Cards/Cards";
 import AlphabetOne from "./pages/Education/Alphabet/AlphabetOne";
 import AlphabetTwo from "./pages/Education/Alphabet/AlphabetTwo";
 import AlphabetThree from "./pages/Education/Alphabet/AlphabetThree";
@@ -34,7 +34,7 @@ function App() {
             />
             <Route path="/formschild" element={<FormsChild />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/cards_content/:id" element={<Programi />} />
+            <Route path="/cards_content/:id" element={<Cards />} />
 
             <Route path="/alphabet_one" element={<AlphabetOne />} />
             <Route path="/alphabet_two" element={<AlphabetTwo />} />

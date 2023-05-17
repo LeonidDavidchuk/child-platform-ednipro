@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import styles from "./Profile.module.css";
 import LayoutProfile from "../../components/LayoutProfile/LayoutProfile";
 import plus from "./images/plus.svg";
-import baby from "./images/baby_photo_profile.jpeg";
 import programi from "./images/programi.svg";
 import igri from "./images/igri.svg";
 import chitannya from "./images/chitannya.svg";
@@ -16,12 +15,13 @@ function Profile() {
 
   const { user } = useContext(UserContext);
   const firstName = user?.firstName || "User";
-  console.log(user);
 
   const handleClick = (index) => {
     setActiveButton(index);
   };
-  const children = user?.Children[activeButton];
+
+  const children = user?.Children?.length ? user?.Children[activeButton] : [];
+  const canAddMoreChildren = user?.Children?.length < 4;
 
   const getGender = (sexId) => {
     if (sexId === 1) {
@@ -38,7 +38,7 @@ function Profile() {
       <div className={styles.container}>
         <div className={styles["button-object-wrapper"]}>
           <div className={styles.buttons}>
-            {user?.Children.map((child, index) => (
+            {user?.Children?.map((child, index) => (
               <button
                 key={index}
                 className={`${styles.deti} ${
@@ -49,19 +49,21 @@ function Profile() {
                 {child.firstName}
               </button>
             ))}
-            <a className={styles.no_decoration} href="/formschild">
-              <button
-                className={`${styles.deti_add} ${
-                  activeButton === user?.Children.length
-                    ? styles.deti_add_active
-                    : ""
-                }`}
-                onClick={() => handleClick(user?.Children.length)}
-              >
-                <img src={plus} alt="plus" />
-                <span>Додати дитину</span>
-              </button>
-            </a>
+            {canAddMoreChildren && (
+              <a className={styles.no_decoration} href="/formschild">
+                <button
+                  className={`${styles.deti_add} ${
+                    activeButton === user?.Children?.length
+                      ? styles.deti_add_active
+                      : ""
+                  }`}
+                  onClick={() => handleClick(user?.Children?.length)}
+                >
+                  <img src={plus} alt="plus" />
+                  <span>Додати дитину</span>
+                </button>
+              </a>
+            )}
           </div>
           <div
             className={`${styles.object} ${
