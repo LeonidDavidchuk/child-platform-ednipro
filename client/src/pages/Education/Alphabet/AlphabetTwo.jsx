@@ -40,6 +40,7 @@ function AlphabetTwo() {
   };
 
   const children = user?.Children?.length ? user?.Children[activeButton] : [];
+  const canAddMoreChildren = user?.Children?.length < 4;
 
   const getGender = (sexId) => {
     if (sexId === 1) {
@@ -95,19 +96,21 @@ function AlphabetTwo() {
                 {child.firstName}
               </button>
             ))}
-            <a className={styles.no_decoration} href="/formschild">
-              <button
-                className={`${styles.deti_add} ${
-                  activeButton === user?.Children?.length
-                    ? styles.deti_add_active
-                    : ""
-                }`}
-                onClick={() => handleClick(user?.Children?.length)}
-              >
-                <img src={plus} alt="plus" />
-                <span>Додати дитину</span>
-              </button>
-            </a>
+            {canAddMoreChildren && (
+              <a className={styles.no_decoration} href="/formschild">
+                <button
+                  className={`${styles.deti_add} ${
+                    activeButton === user?.Children?.length
+                      ? styles.deti_add_active
+                      : ""
+                  }`}
+                  onClick={() => handleClick(user?.Children?.length)}
+                >
+                  <img src={plus} alt="plus" />
+                  <span>Додати дитину</span>
+                </button>
+              </a>
+            )}
           </div>
           <div
             className={`${styles.object} ${

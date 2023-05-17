@@ -65,6 +65,7 @@ function Cards() {
     { id: 3, name: "Довкілля" },
     { id: 4, name: "Соціум" },
     { id: 5, name: "Мистецтво" },
+    { id: 6, name: "Музика" },
   ];
 
   const programsData = [
