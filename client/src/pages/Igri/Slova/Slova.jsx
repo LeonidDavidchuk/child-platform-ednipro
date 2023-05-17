@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./Slova.module.css";
 import LayoutProfile from "../../../components/LayoutProfile/LayoutProfile";
 import baby from "../../Profile/images/baby_photo_profile.jpeg";
@@ -44,7 +45,7 @@ function Slova() {
             >
               Стас
             </button>
-            <a className={styles.no_underline} href="/formschild">
+            <Link className={styles.no_underline} to="/formschild">
               <button
                 className={`${styles.deti_add} ${
                   activeButton === 2 ? styles.deti_add_active : ""
@@ -54,7 +55,7 @@ function Slova() {
                 <img src={plus} alt="plus" />
                 <span>Додати дитину</span>
               </button>
-            </a>
+            </Link>
           </div>
 
           <div
@@ -75,7 +76,7 @@ function Slova() {
             </div>
 
             <div className={styles.razdeli}>
-              <a href="/programi">
+              <Link to="/cards_content/0">
                 <div
                   className={`${styles.programi} ${
                     activeSection === 0 ? styles.programi_active : ""
@@ -88,9 +89,9 @@ function Slova() {
                     alt="programi"
                   />
                 </div>
-              </a>
+              </Link>
 
-              <a href="/education_games">
+              <Link to="/cards_content/1">
                 <div
                   className={`${styles.programi} ${
                     activeSection === 1 ? styles.igri_active : ""
@@ -103,7 +104,7 @@ function Slova() {
                     alt="igri"
                   />
                 </div>
-              </a>
+              </Link>
 
               <div
                 className={`${styles.chitannya} ${
@@ -111,12 +112,12 @@ function Slova() {
                 }`}
                 onClick={() => handleSectionClick(2)}
               >
-                <a className={styles.no_underline} href="/chitannya">
+                <Link className={styles.no_underline} to="/cards_content/2">
                   <div className={styles.chitannya_text}>
                     <span>Читання та</span>
                     <span>аудіокниги</span>
                   </div>
-                </a>
+                </Link>
                 <img
                   src={activeSection === 2 ? chitannya_active : chitannya_gray}
                   alt="chitannya"

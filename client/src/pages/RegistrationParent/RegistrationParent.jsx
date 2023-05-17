@@ -3,7 +3,7 @@ import styles from "./RegistrationParent.module.css";
 import Layout from "../../components/Layout/Layout";
 import plus from "./images/plus.svg";
 import { Link } from "react-router-dom";
-import WithAuth from "../../components/WithAuth/WithAuth";
+import withAuth from "../../components/WithAuth/WithAuth";
 import { UserContext } from "../../UserContext";
 
 function RegistrationParent() {
@@ -33,4 +33,4 @@ function RegistrationParent() {
   );
 }
 
-export default WithAuth(RegistrationParent);
+export default withAuth(RegistrationParent);

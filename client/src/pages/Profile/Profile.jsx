@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./Profile.module.css";
 import LayoutProfile from "../../components/LayoutProfile/LayoutProfile";
 import plus from "./images/plus.svg";
@@ -7,6 +8,7 @@ import programi from "./images/programi.svg";
 import igri from "./images/igri.svg";
 import chitannya from "./images/chitannya.svg";
 import withAuth from "../../components/WithAuth/WithAuth";
+import { UserContext } from "../../UserContext";
 
 function Profile() {
   const [activeButton, setActiveButton] = useState(0);
@@ -66,7 +68,7 @@ function Profile() {
             </div>
 
             <div className={styles.blocks}>
-              <a href="/programi">
+              <Link to="/cards_content/0">
                 <div className={styles.programi}>
                   <div className={styles.programi_text}>
                     <span>Учбові</span>
@@ -78,9 +80,9 @@ function Profile() {
                     alt="programi"
                   />
                 </div>
-              </a>
+              </Link>
 
-              <a href="/education_games">
+              <Link to="/cards_content/1">
                 <div className={styles.igri}>
                   <div className={styles.igri_text}>
                     <span>Розвиваючі</span>
@@ -88,9 +90,9 @@ function Profile() {
                   </div>
                   <img className={styles.igri_img} src={igri} alt="igri" />
                 </div>
-              </a>
+              </Link>
 
-              <a href="/chitannya">
+              <Link to="/cards_content/2">
                 <div className={styles.chitannya}>
                   <div className={styles.chitannya_text}>
                     <span>Читання та</span>
@@ -102,7 +104,7 @@ function Profile() {
                     alt="chitannya"
                   />
                 </div>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

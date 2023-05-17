@@ -15,6 +15,7 @@ import akula from "./assets/sounds/akula.mp3";
 
 import yula from "./assets/pictures/yula.svg";
 import yabloko from "./assets/pictures/yabloko.svg";
+import { Link } from "react-router-dom";
 
 function AlphabetSeven() {
   const [activeButton, setActiveButton] = useState(0);
@@ -76,7 +77,7 @@ function AlphabetSeven() {
             >
               Стас
             </button>
-            <a className={styles.no_underline} href="/formschild">
+            <Link className={styles.no_underline} to="/formschild">
               <button
                 className={`${styles.deti_add} ${
                   activeButton === 2 ? styles.deti_add_active : ""
@@ -86,7 +87,7 @@ function AlphabetSeven() {
                 <img src={plus} alt="plus" />
                 <span>Додати дитину</span>
               </button>
-            </a>
+            </Link>
           </div>
 
           <div
@@ -107,7 +108,7 @@ function AlphabetSeven() {
             </div>
 
             <div className={styles.razdeli}>
-              <a href="/programi">
+              <Link to="/cards_content/0">
                 <div
                   className={`${styles.programi} ${
                     activeSection === 0 ? styles.programi_active : ""
@@ -120,9 +121,9 @@ function AlphabetSeven() {
                     alt="programi"
                   />
                 </div>
-              </a>
+              </Link>
 
-              <a href="/education_games">
+              <Link to="/cards_content/1">
                 <div
                   className={`${styles.programi} ${
                     activeSection === 1 ? styles.igri_active : ""
@@ -135,9 +136,9 @@ function AlphabetSeven() {
                     alt="igri"
                   />
                 </div>
-              </a>
+              </Link>
 
-              <a href="/chitannya" className={styles.no_underline}>
+              <Link to="/cards_content/2" className={styles.no_underline}>
                 <div
                   className={`${styles.chitannya} ${
                     activeSection === 2 ? styles.chitannya_active : ""
@@ -155,7 +156,7 @@ function AlphabetSeven() {
                     alt="chitannya"
                   />
                 </div>
-              </a>
+              </Link>
             </div>
 
             <div className={styles.image_letter}>

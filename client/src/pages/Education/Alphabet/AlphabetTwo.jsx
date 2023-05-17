@@ -19,6 +19,7 @@ import elf from "./assets/pictures/elf.svg";
 import enot from "./assets/pictures/enot.svg";
 import zhaba from "./assets/pictures/zhaba.svg";
 import zebra from "./assets/pictures/zebra.svg";
+import { Link } from "react-router-dom";
 
 function AlphabetTwo() {
   const [activeButton, setActiveButton] = useState(0);
@@ -82,7 +83,7 @@ function AlphabetTwo() {
             >
               Стас
             </button>
-            <a className={styles.no_underline} href="/formschild">
+            <Link className={styles.no_underline} to="/formschild">
               <button
                 className={`${styles.deti_add} ${
                   activeButton === 2 ? styles.deti_add_active : ""
@@ -92,7 +93,7 @@ function AlphabetTwo() {
                 <img src={plus} alt="plus" />
                 <span>Додати дитину</span>
               </button>
-            </a>
+            </Link>
           </div>
 
           <div
@@ -113,22 +114,22 @@ function AlphabetTwo() {
             </div>
 
             <div className={styles.razdeli}>
-              <a href="/programi">
-              <div
-                className={`${styles.programi} ${
-                  activeSection === 0 ? styles.programi_active : ""
-                }`}
-                onClick={() => handleSectionClick(0)}
-              >
-                <span>Учбові програми</span>
-                <img
-                  src={activeSection === 0 ? programi_active : programi_gray}
-                  alt="programi"
-                />
-              </div>
-              </a>
+              <Link to="/cards_content/0">
+                <div
+                  className={`${styles.programi} ${
+                    activeSection === 0 ? styles.programi_active : ""
+                  }`}
+                  onClick={() => handleSectionClick(0)}
+                >
+                  <span>Учбові програми</span>
+                  <img
+                    src={activeSection === 0 ? programi_active : programi_gray}
+                    alt="programi"
+                  />
+                </div>
+              </Link>
 
-              <a href="/education_games">
+              <Link to="/cards_content/1">
                 <div
                   className={`${styles.programi} ${
                     activeSection === 1 ? styles.igri_active : ""
@@ -141,25 +142,27 @@ function AlphabetTwo() {
                     alt="igri"
                   />
                 </div>
-              </a>
+              </Link>
 
-              <a className={styles.no_underline} href="/chitannya">
-              <div
-                className={`${styles.chitannya} ${
-                  activeSection === 2 ? styles.chitannya_active : ""
-                }`}
-                onClick={() => handleSectionClick(2)}
-              >
-                <div className={styles.chitannya_text}>
-                  <span>Читання та</span>
-                  <span>аудіокниги</span>
+              <Link className={styles.no_underline} to="/cards_content/2">
+                <div
+                  className={`${styles.chitannya} ${
+                    activeSection === 2 ? styles.chitannya_active : ""
+                  }`}
+                  onClick={() => handleSectionClick(2)}
+                >
+                  <div className={styles.chitannya_text}>
+                    <span>Читання та</span>
+                    <span>аудіокниги</span>
+                  </div>
+                  <img
+                    src={
+                      activeSection === 2 ? chitannya_active : chitannya_gray
+                    }
+                    alt="chitannya"
+                  />
                 </div>
-                <img
-                  src={activeSection === 2 ? chitannya_active : chitannya_gray}
-                  alt="chitannya"
-                />
-              </div>
-              </a>
+              </Link>
             </div>
 
             <div className={styles.image_letter}>

@@ -18,6 +18,7 @@ import begemot_image from "./assets/pictures/begemot.svg";
 import verblud_image from "./assets/pictures/verblud.svg";
 import golub_image from "./assets/pictures/golub.svg";
 import gudzik_image from "./assets/pictures/gudzik.svg";
+import { Link } from "react-router-dom";
 
 function AlphabetOne() {
   const [activeButton, setActiveButton] = useState(0);
@@ -81,7 +82,7 @@ function AlphabetOne() {
             >
               Стас
             </button>
-            <a className={styles.no_underline} href="/formschild">
+            <Link className={styles.no_underline} to="/formschild">
               <button
                 className={`${styles.deti_add} ${
                   activeButton === 2 ? styles.deti_add_active : ""
@@ -91,7 +92,7 @@ function AlphabetOne() {
                 <img src={plus} alt="plus" />
                 <span>Додати дитину</span>
               </button>
-            </a>
+            </Link>
           </div>
 
           <div
@@ -112,7 +113,7 @@ function AlphabetOne() {
             </div>
 
             <div className={styles.razdeli}>
-              <a href="/programi">
+              <Link to="/cards_content/0">
                 <div
                   className={`${styles.programi} ${
                     activeSection === 0 ? styles.programi_active : ""
@@ -125,9 +126,9 @@ function AlphabetOne() {
                     alt="programi"
                   />
                 </div>
-              </a>
+              </Link>
 
-              <a href="/education_games">
+              <Link to="/cards_content/1">
                 <div
                   className={`${styles.programi} ${
                     activeSection === 1 ? styles.igri_active : ""
@@ -140,9 +141,9 @@ function AlphabetOne() {
                     alt="igri"
                   />
                 </div>
-              </a>
+              </Link>
 
-              <a className={styles.no_decoration} href="/chitannya">
+              <Link className={styles.no_decoration} to="/cards_content/2">
                 <div
                   className={`${styles.chitannya} ${
                     activeSection === 2 ? styles.chitannya_active : ""
@@ -160,7 +161,7 @@ function AlphabetOne() {
                     alt="chitannya"
                   />
                 </div>
-              </a>
+              </Link>
             </div>
 
             <div className={styles.image_letter}>

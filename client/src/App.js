@@ -7,8 +7,7 @@ import Login from "./pages/Login/Login.jsx";
 import RegistrationParent from "./pages/RegistrationParent/RegistrationParent.jsx";
 import FormsChild from "./pages/FormsChild/FormsChild.jsx";
 import Profile from "./pages/Profile/Profile";
-import Games from "./pages/Games/Games";
-import Programi from "./pages/Programi/Programi";
+import Programi from "./pages/Cards/Cards";
 import AlphabetOne from "./pages/Education/Alphabet/AlphabetOne";
 import AlphabetTwo from "./pages/Education/Alphabet/AlphabetTwo";
 import AlphabetThree from "./pages/Education/Alphabet/AlphabetThree";
@@ -18,7 +17,6 @@ import AlphabetSix from "./pages/Education/Alphabet/AlphabetSix";
 import AlphabetSeven from "./pages/Education/Alphabet/AlphabetSeven";
 import Slova from "./pages/Igri/Slova/Slova";
 import Figuri from "./pages/Igri/Figuri/Figuri";
-import Chitannya from "./pages/Chitannya/Chitannya";
 import Podchet from "./pages/Igri/Podchet/Podchet";
 import Sloga from "./pages/Igri/Sloga/Sloga";
 
@@ -36,9 +34,7 @@ function App() {
             />
             <Route path="/formschild" element={<FormsChild />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/education_games" element={<Games />} />
-            <Route path="/programi" element={<Programi />} />
-            <Route path="/chitannya" element={<Chitannya />} />
+            <Route path="/cards_content/:id" element={<Programi />} />
 
             <Route path="/alphabet_one" element={<AlphabetOne />} />
             <Route path="/alphabet_two" element={<AlphabetTwo />} />
