@@ -39,22 +39,21 @@ function FormsChild() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    const data = new FormData();
-    data.append("firstName", formData.firstName);
-    data.append("lastName", formData.lastName);
-    data.append("age", formData.age);
-    data.append("gender", formData.gender);
-    if (formData.photo) {
-      data.append("photo", formData.photo);
-    }
-
     try {
       const photoExist = !!formData.photo;
+      let url = "";
+      if(photoExist) {
+        const fileData = new FormData();
+        fileData.append("", formData.photo);
+        const { data } = await api.post("/upload", fileData);
+        url = data.url;
+      }
       const { photo, ...dataWithoutPhoto } = formData;
       const response = await api.post(
         "/child",
-        photoExist ? formData : dataWithoutPhoto
+        url
+          ? { ...dataWithoutPhoto, photo: `http://localhost:3000/${url}` }
+          : dataWithoutPhoto
       );
       console.log(response.data);
       navigate("/profile");

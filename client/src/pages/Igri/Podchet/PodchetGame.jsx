@@ -111,7 +111,7 @@ function PodchetGame(props) {
         </div>
         <Link
           className={`${styles.gameOver_button} ${styles.no_decoration}`}
-          to="/education_games"
+          to="/cards_content/1"
         >
           Закрити гру
         </Link>
@@ -149,7 +149,11 @@ function PodchetGame(props) {
                   }`}
                   onClick={() => handleAnswerClick(answerOption.value)}
                 >
-                  <img className={styles.image_answer} src={answerOption.img} alt="" />
+                  <img
+                    className={styles.image_answer}
+                    src={answerOption.img}
+                    alt=""
+                  />
                 </button>
               )
             )}

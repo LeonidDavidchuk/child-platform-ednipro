@@ -91,7 +91,7 @@ function FiguriGame(props) {
         </div>
         <Link
           className={`${styles.gameOver_button} ${styles.no_decoration}`}
-          to="/education_games"
+          to="/cards_content/1"
         >
           Закрити гру
         </Link>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Profile.module.css";
 import LayoutProfile from "../../components/LayoutProfile/LayoutProfile";
@@ -13,8 +14,23 @@ import { UserContext } from "../../UserContext";
 function Profile() {
   const [activeButton, setActiveButton] = useState(0);
 
+  const { user } = useContext(UserContext);
+  const firstName = user?.firstName || "User";
+  console.log(user);
+
   const handleClick = (index) => {
     setActiveButton(index);
+  };
+  const children = user?.Children[activeButton];
+
+  const getGender = (sexId) => {
+    if (sexId === 1) {
+      return "Хлопчик";
+    } else if (sexId === 2) {
+      return "Дівчинка";
+    } else {
+      return "";
+    }
   };
 
   return (
@@ -22,28 +38,25 @@ function Profile() {
       <div className={styles.container}>
         <div className={styles["button-object-wrapper"]}>
           <div className={styles.buttons}>
-            <button
-              className={`${styles.deti} ${
-                activeButton === 0 ? styles.deti_active : ""
-              }`}
-              onClick={() => handleClick(0)}
-            >
-              Леонид
-            </button>
-            <button
-              className={`${styles.deti} ${
-                activeButton === 1 ? styles.deti_active : ""
-              }`}
-              onClick={() => handleClick(1)}
-            >
-              Стас
-            </button>
+            {user?.Children.map((child, index) => (
+              <button
+                key={index}
+                className={`${styles.deti} ${
+                  activeButton === index ? styles.deti_active : ""
+                }`}
+                onClick={() => handleClick(index)}
+              >
+                {child.firstName}
+              </button>
+            ))}
             <a className={styles.no_decoration} href="/formschild">
               <button
                 className={`${styles.deti_add} ${
-                  activeButton === 2 ? styles.deti_add_active : ""
+                  activeButton === user?.Children.length
+                    ? styles.deti_add_active
+                    : ""
                 }`}
-                onClick={() => handleClick(2)}
+                onClick={() => handleClick(user?.Children.length)}
               >
                 <img src={plus} alt="plus" />
                 <span>Додати дитину</span>
@@ -56,12 +69,18 @@ function Profile() {
             }`}
           >
             <div className={styles.photo_parametrs}>
-              <img className={styles.profile_photo} src={baby} alt="baby" />
+              <img
+                className={styles.profile_photo}
+                src={children?.photo}
+                alt="baby"
+              />
 
               <div className={styles.parametr}>
-                <span>Давидчук Леонид</span>
-                <span>Хлопчик</span>
-                <span>20 лет</span>
+                <span>
+                  {children?.lastName} {children?.firstName}
+                </span>
+                <span>{getGender(children?.sexId)}</span>
+                <span>{children?.age} років</span>
               </div>
 
               <div className={styles.alert}>Повідомлення</div>

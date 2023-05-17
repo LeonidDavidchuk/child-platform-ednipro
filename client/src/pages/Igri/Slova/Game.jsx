@@ -79,7 +79,6 @@ function Game(props) {
       image: zhiraf,
       position: 4,
     },
-
   ];
 
   const [answer, setAnswer] = useState("");
@@ -138,7 +137,7 @@ function Game(props) {
         </div>
         <Link
           className={`${styles.gameOver_button} ${styles.no_decoration}`}
-          to="/cards_content"
+          to="/cards_content/1"
         >
           Закрити гру
         </Link>
