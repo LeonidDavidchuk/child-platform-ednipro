@@ -1,12 +1,14 @@
 import React, { useState } from "react";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./Login.module.css";
 import ednipro_logo from "../Registration/images/ednipro_logo.svg";
 import child from "../Registration/images/child.svg";
 import child_mobile from "../Registration/images/child_mobile.svg";
 import child_tablet from "../Registration/images/child_tablet.svg";
 
-import { useNavigate } from "react-router-dom";
 import api from "../../api";
+import { UserContext } from "../../UserContext";
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -15,6 +17,7 @@ function Login() {
   });
 
   const [errorMessage, setErrorMessage] = useState("");
+  const { setUser } = useContext(UserContext);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -31,7 +34,8 @@ function Login() {
 
       if (response.status === 200) {
         localStorage.setItem("token", response.data.token);
-        navigate("/registrationparent");
+        setUser(response.data);
+        navigate("/profile");
       } else {
         setErrorMessage("Помилка входу");
       }

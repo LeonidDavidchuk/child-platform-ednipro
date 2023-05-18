@@ -164,6 +164,26 @@
   font-size: 22px;
 }
 
+@media (max-width: 2560px) {
+  .child_mobile {
+    display: none;
+  }
+
+  .child_tablet {
+    display: none;
+  }
+}
+
+@media (max-width: 1440px) {
+  .child_mobile {
+    display: none;
+  }
+
+  .child_tablet {
+    display: none;
+  }
+}
+
 @media (max-width: 1024px) {
   .child_photo {
     height: 768px;

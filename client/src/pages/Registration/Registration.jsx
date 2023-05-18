@@ -23,7 +23,6 @@ function Registration() {
     const [firstName, lastName] = e.target.value.split(" ");
     setFormData({ ...formData, firstName, lastName });
   };
-  console.log(formData);
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -46,7 +45,7 @@ function Registration() {
       }
     } catch (error) {
       if (error.response) {
-        setErrorMessage(error.response.data.message || "Помилка реєстрації");
+        setErrorMessage("Помилка реєстрації");
       } else {
         setErrorMessage("Помилка реєстрації");
       }
@@ -88,7 +87,7 @@ function Registration() {
                   className={styles.form}
                   type="text"
                   name="fullName"
-                  placeholder="Прізвище та Ім'я "
+                  placeholder="Ім'я та Прізвище"
                   onChange={handleChangeFullName}
                 />
                 <input
