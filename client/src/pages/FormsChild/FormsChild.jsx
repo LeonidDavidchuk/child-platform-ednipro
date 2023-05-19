@@ -1,10 +1,10 @@
 import React, { useRef, useState } from "react";
 import api from "../../api";
 import styles from "./FormsChild.module.css";
-import Layout from "../../components/Layout/Layout";
 import plus from "./images/plus.svg";
 import withAuth from "../../components/WithAuth/WithAuth";
 import { useNavigate } from "react-router-dom";
+import LayoutProfile from "../../components/LayoutProfile/LayoutProfile";
 
 function FormsChild() {
   const inputRef = useRef();
@@ -64,7 +64,7 @@ function FormsChild() {
   };
 
   return (
-    <Layout>
+    <LayoutProfile>
       <div className={styles.full_height}>
         <div className={styles.center}>
           <span className={styles.ditina}>Дитина</span>
@@ -162,7 +162,7 @@ function FormsChild() {
           </div>
         </div>
       </div>
-    </Layout>
+    </LayoutProfile>
   );
 }
 
