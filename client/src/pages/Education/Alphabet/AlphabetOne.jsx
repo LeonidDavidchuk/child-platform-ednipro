@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./Alphabet.module.css";
 import { useContext } from "react";
 import LayoutProfile from "../../../components/LayoutProfile/LayoutProfile";
+import ponchik from "./images/ponchik.svg";
 import plus from "../../Profile/images/plus.svg";
 import programi_gray from "./images/programi_gray.svg";
 import igri_gray from "./images/igri_gray.svg";
@@ -20,7 +21,11 @@ import golub_image from "./assets/pictures/golub.svg";
 import gudzik_image from "./assets/pictures/gudzik.svg";
 import { Link } from "react-router-dom";
 
-import akula from "./assets/sounds/akula.mp3";
+import akula from "./assets/sounds/akula.m4a";
+import begemot from "./assets/sounds/begemot.m4a";
+import verblud from "./assets/sounds/verblud.m4a";
+import golub from "./assets/sounds/golub.m4a";
+import gudzik from "./assets/sounds/gudzik.m4a";
 
 function AlphabetOne() {
   const [activeButton, setActiveButton] = useState(0);
@@ -73,10 +78,10 @@ function AlphabetOne() {
 
   const alphabet = [
     { letter: "А", sound: akula, image: akula_image, word: "Акула" },
-    { letter: "Б", sound: akula, image: begemot_image, word: "Бегемот" },
-    { letter: "В", sound: akula, image: verblud_image, word: "Верблюд" },
-    { letter: "Г", sound: akula, image: golub_image, word: "Голуб" },
-    { letter: "Ґ", sound: akula, image: gudzik_image, word: "Ґудзик" },
+    { letter: "Б", sound: begemot, image: begemot_image, word: "Бегемот" },
+    { letter: "В", sound: verblud, image: verblud_image, word: "Верблюд" },
+    { letter: "Г", sound: golub, image: golub_image, word: "Голуб" },
+    { letter: "Ґ", sound: gudzik, image: gudzik_image, word: "Ґудзик" },
   ];
 
   return (
@@ -119,7 +124,7 @@ function AlphabetOne() {
             <div className={styles.photo_parametrs}>
               <img
                 className={styles.profile_photo}
-                src={children?.photo}
+                src={children?.photo || ponchik}
                 alt="baby"
               />
 

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import styles from "./Alphabet.module.css";
 import LayoutProfile from "../../../components/LayoutProfile/LayoutProfile";
-import { useContext } from "react";
-import baby from "../../Profile/images/baby_photo_profile.jpeg";
 import plus from "../../Profile/images/plus.svg";
 import programi_gray from "./images/programi_gray.svg";
+import ponchik from "./images/ponchik.svg";
 import igri_gray from "./images/igri_gray.svg";
 import chitannya_gray from "./images/chitannya_gray.svg";
 import programi_active from "./images/programi_active.svg";
@@ -14,11 +14,12 @@ import arrow_back from "./images/arrow_back.svg";
 import withAuth from "../../../components/WithAuth/WithAuth";
 import { UserContext } from "../../../UserContext";
 
-import akula from "./assets/sounds/akula.mp3";
-
 import yula from "./assets/pictures/yula.svg";
 import yabloko from "./assets/pictures/yabloko.svg";
-import { Link } from "react-router-dom";
+
+import myakiy_sound from "./assets/sounds/myakiy_sound.m4a";
+import yula_sound from "./assets/sounds/yula_sound.m4a";
+import yabloko_sound from "./assets/sounds/yabloko_sound.m4a";
 
 function AlphabetSeven() {
   const [activeButton, setActiveButton] = useState(0);
@@ -70,9 +71,9 @@ function AlphabetSeven() {
   };
 
   const alphabet = [
-    { letter: "Ь", sound: akula },
-    { letter: "Ю", sound: akula, image: yula, word: "Юла" },
-    { letter: "Я", sound: akula, image: yabloko, word: "Яблоко" },
+    { letter: "Ь", sound: myakiy_sound },
+    { letter: "Ю", sound: yula_sound, image: yula, word: "Юла" },
+    { letter: "Я", sound: yabloko_sound, image: yabloko, word: "Яблоко" },
   ];
 
   return (
@@ -115,7 +116,7 @@ function AlphabetSeven() {
             <div className={styles.photo_parametrs}>
               <img
                 className={styles.profile_photo}
-                src={children?.photo}
+                src={children?.photo || ponchik}
                 alt="baby"
               />
 

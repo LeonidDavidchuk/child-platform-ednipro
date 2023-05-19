@@ -3,6 +3,7 @@ import styles from "./Alphabet.module.css";
 import LayoutProfile from "../../../components/LayoutProfile/LayoutProfile";
 import { useContext } from "react";
 import plus from "../../Profile/images/plus.svg";
+import ponchik from "./images/ponchik.svg";
 import programi_gray from "./images/programi_gray.svg";
 import igri_gray from "./images/igri_gray.svg";
 import chitannya_gray from "./images/chitannya_gray.svg";
@@ -14,14 +15,18 @@ import arrow_back from "./images/arrow_back.svg";
 import withAuth from "../../../components/WithAuth/WithAuth";
 import { UserContext } from "../../../UserContext";
 
-import akula from "./assets/sounds/akula.mp3";
-
 import delfin from "./assets/pictures/delfin.svg";
 import elf from "./assets/pictures/elf.svg";
 import enot from "./assets/pictures/enot.svg";
 import zhaba from "./assets/pictures/zhaba.svg";
 import zebra from "./assets/pictures/zebra.svg";
 import { Link } from "react-router-dom";
+
+import delfin_sound from "./assets/sounds/delfin_sound.m4a";
+import elf_sound from "./assets/sounds/elf_sound.m4a";
+import enot_sound from "./assets/sounds/enot_sound.m4a";
+import zhaba_sound from "./assets/sounds/zhaba_sound.m4a";
+import zebra_sound from "./assets/sounds/zebra_sound.m4a";
 
 function AlphabetTwo() {
   const [activeButton, setActiveButton] = useState(0);
@@ -73,11 +78,11 @@ function AlphabetTwo() {
   };
 
   const alphabet = [
-    { letter: "Д", sound: akula, image: delfin, word: "Дельфін" },
-    { letter: "Е", sound: akula, image: elf, word: "Ельф" },
-    { letter: "Є", sound: akula, image: enot, word: "Єнот" },
-    { letter: "Ж", sound: akula, image: zhaba, word: "Жаба" },
-    { letter: "З", sound: akula, image: zebra, word: "Зебра" },
+    { letter: "Д", sound: delfin_sound, image: delfin, word: "Дельфін" },
+    { letter: "Е", sound: elf_sound, image: elf, word: "Ельф" },
+    { letter: "Є", sound: enot_sound, image: enot, word: "Єнот" },
+    { letter: "Ж", sound: zhaba_sound, image: zhaba, word: "Жаба" },
+    { letter: "З", sound: zebra_sound, image: zebra, word: "Зебра" },
   ];
 
   return (
@@ -120,7 +125,7 @@ function AlphabetTwo() {
             <div className={styles.photo_parametrs}>
               <img
                 className={styles.profile_photo}
-                src={children?.photo}
+                src={children?.photo || ponchik}
                 alt="baby"
               />
 

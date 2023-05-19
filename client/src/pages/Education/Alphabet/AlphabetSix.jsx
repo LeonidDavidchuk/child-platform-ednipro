@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import styles from "./Alphabet.module.css";
 import LayoutProfile from "../../../components/LayoutProfile/LayoutProfile";
-import { useContext } from "react";
 import plus from "../../Profile/images/plus.svg";
 import programi_gray from "./images/programi_gray.svg";
 import igri_gray from "./images/igri_gray.svg";
+import ponchik from "./images/ponchik.svg";
 import chitannya_gray from "./images/chitannya_gray.svg";
 import programi_active from "./images/programi_active.svg";
 import igri_active from "./images/igri_active.svg";
@@ -14,14 +15,17 @@ import arrow_back from "./images/arrow_back.svg";
 import withAuth from "../../../components/WithAuth/WithAuth";
 import { UserContext } from "../../../UserContext";
 
-import akula from "./assets/sounds/akula.mp3";
-
 import holodilnik from "./assets/pictures/holodilnik.svg";
 import caplia from "./assets/pictures/caplia.svg";
 import cucik from "./assets/pictures/cucik.svg";
 import shokolad from "./assets/pictures/shokolad.svg";
 import chit from "./assets/pictures/chit.svg";
-import { Link } from "react-router-dom";
+
+import holodilnik_sound from "./assets/sounds/holodilnik_sound.m4a";
+import chaplya_sound from "./assets/sounds/chaplya_sound.m4a";
+import cucik_sound from "./assets/sounds/cucik_sound.m4a";
+import shokolad_sound from "./assets/sounds/shokolad_sound.m4a";
+import chit_sound from "./assets/sounds/chit_sound.m4a";
 
 function AlphabetSix() {
   const [activeButton, setActiveButton] = useState(0);
@@ -73,11 +77,16 @@ function AlphabetSix() {
   };
 
   const alphabet = [
-    { letter: "Х", sound: akula, image: holodilnik, word: "Холодильник" },
-    { letter: "Ц", sound: akula, image: cucik, word: "Цуцик" },
-    { letter: "Ч", sound: akula, image: caplia, word: "Чапля" },
-    { letter: "Ш", sound: akula, image: shokolad, word: "Шоколад" },
-    { letter: "Щ", sound: akula, image: chit, word: "Щит" },
+    {
+      letter: "Х",
+      sound: holodilnik_sound,
+      image: holodilnik,
+      word: "Холодильник",
+    },
+    { letter: "Ц", sound: cucik_sound, image: cucik, word: "Цуценя" },
+    { letter: "Ч", sound: chaplya_sound, image: caplia, word: "Чапля" },
+    { letter: "Ш", sound: shokolad_sound, image: shokolad, word: "Шоколад" },
+    { letter: "Щ", sound: chit_sound, image: chit, word: "Щит" },
   ];
 
   return (
@@ -120,7 +129,7 @@ function AlphabetSix() {
             <div className={styles.photo_parametrs}>
               <img
                 className={styles.profile_photo}
-                src={children?.photo}
+                src={children?.photo || ponchik}
                 alt="baby"
               />
 

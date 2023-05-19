@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useContext } from "react";
+import { Document, Page, pdfjs } from "react-pdf";
 import { Link, useParams } from "react-router-dom";
 import styles from "./Cards.module.css";
 import LayoutProfile from "../../components/LayoutProfile/LayoutProfile";
+import ponchik from "./images/ponchik.svg";
 import plus from "../Profile/images/plus.svg";
 import programi_gray from "./images/programi_gray.svg";
 import igri_gray from "./images/igri_gray.svg";
@@ -19,17 +21,52 @@ import card_slova from "./images/card_slova.svg";
 import card_rahui from "./images/card_rahui.svg";
 import card_figuri from "./images/card_figuri.svg";
 
+import book1_image from "./images/book1_image.jpg";
+
+import book1 from "./assets/books/book1.pdf";
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+
 function Cards() {
   const { id } = useParams();
   const [activeButton, setActiveButton] = useState(0);
   const [activeSection, setActiveSection] = useState(+id || 0);
   const [activeFilter, setActiveFilter] = useState(null);
 
+  const [pdfModalVisible, setPdfModalVisible] = useState(false);
+  const [pdfFile, setPdfFile] = useState(null);
+  const [pageNumber, setPageNumber] = useState(1);
+  const [numPages, setNumPages] = useState(null);
+
   const { user } = useContext(UserContext);
   const firstName = user?.firstName || "User";
 
+  const handleBookClick = (pdf) => {
+    setPdfFile(pdf);
+    setPdfModalVisible(true);
+    pdfjs.getDocument(pdf).promise.then((pdfDoc) => {
+      setNumPages(pdfDoc.numPages);
+    });
+  };
+
+  const closeModal = () => {
+    setPdfModalVisible(false);
+  };
+
   const handleClick = (index) => {
     setActiveButton(index);
+  };
+
+  const nextPage = () => {
+    setPageNumber((prevPageNumber) =>
+      prevPageNumber < numPages ? prevPageNumber + 1 : prevPageNumber
+    );
+  };
+
+  const prevPage = () => {
+    setPageNumber((prevPageNumber) =>
+      prevPageNumber > 1 ? prevPageNumber - 1 : prevPageNumber
+    );
   };
 
   const children = user?.Children?.length ? user?.Children[activeButton] : [];
@@ -112,6 +149,16 @@ function Cards() {
     },
   ];
 
+  const booksData = [
+    {
+      id: 1,
+      title: "Вика и Алик",
+      category: "Читання та аудіокниги",
+      pdf: book1,
+      image: book1_image,
+    },
+  ];
+
   const renderContent = () => {
     switch (activeSection) {
       case 0:
@@ -166,7 +213,24 @@ function Cards() {
         );
 
       case 2:
-        return <div></div>;
+        return (
+          <div className={styles.cards_container}>
+            {booksData.map((book) => (
+              <div
+                key={book.id}
+                className={styles.card_book}
+                onClick={() => handleBookClick(book.pdf)}
+              >
+                <div className={styles.picture_in_card_book}>
+                  <img src={book.image} alt={book.title} />
+                </div>
+                <div className={styles.down_card}>
+                  <span>{book.title}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        );
       default:
         return null;
     }
@@ -216,7 +280,7 @@ function Cards() {
             <div className={styles.photo_parametrs}>
               <img
                 className={styles.profile_photo}
-                src={children?.photo}
+                src={children?.photo || ponchik}
                 alt="baby"
               />
 
@@ -274,8 +338,27 @@ function Cards() {
                 />
               </div>
             </div>
-
             {renderContent()}
+            {pdfModalVisible && (
+              <div className={styles.modal_wrapper} onClick={closeModal}>
+                <div className={styles.modal}>
+                  <div
+                    className={styles.modal_content}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <Document file={pdfFile}>
+                      {<Page pageNumber={pageNumber} width={500} scale={2} />}
+                    </Document>
+                    <button className={styles.prev_page} onClick={prevPage}>
+                      {"<<"}
+                    </button>
+                    <button className={styles.next_page} onClick={nextPage}>
+                      {">>"}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

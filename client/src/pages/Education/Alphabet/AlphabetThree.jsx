@@ -3,6 +3,7 @@ import styles from "./Alphabet.module.css";
 import LayoutProfile from "../../../components/LayoutProfile/LayoutProfile";
 import { useContext } from "react";
 import plus from "../../Profile/images/plus.svg";
+import ponchik from "./images/ponchik.svg";
 import programi_gray from "./images/programi_gray.svg";
 import igri_gray from "./images/igri_gray.svg";
 import chitannya_gray from "./images/chitannya_gray.svg";
@@ -14,13 +15,17 @@ import arrow_back from "./images/arrow_back.svg";
 import withAuth from "../../../components/WithAuth/WithAuth";
 import { UserContext } from "../../../UserContext";
 
-import akula from "./assets/sounds/akula.mp3";
-
 import indik from "./assets/pictures/indik.svg";
 import izhak from "./assets/pictures/izhak.svg";
 import ioghurt from "./assets/pictures/ioghurt.svg";
 import kin from "./assets/pictures/kin.svg";
 import { Link } from "react-router-dom";
+
+import i_sound from "./assets/sounds/i_sound.m4a";
+import indik_sound from "./assets/sounds/indik_sound.m4a";
+import izhak_sound from "./assets/sounds/izhak_sound.m4a";
+import ioghurt_sound from "./assets/sounds/ioghurt_sound.m4a";
+import kin_sound from "./assets/sounds/kin_sound.m4a";
 
 function AlphabetThree() {
   const [activeButton, setActiveButton] = useState(0);
@@ -72,11 +77,11 @@ function AlphabetThree() {
   };
 
   const alphabet = [
-    { letter: "И", sound: akula },
-    { letter: "І", sound: akula, image: indik, word: "Індик" },
-    { letter: "Ї", sound: akula, image: izhak, word: "Їжак" },
-    { letter: "Й", sound: akula, image: ioghurt, word: "Йогурт" },
-    { letter: "К", sound: akula, image: kin, word: "Кінь" },
+    { letter: "И", sound: i_sound },
+    { letter: "І", sound: indik_sound, image: indik, word: "Індик" },
+    { letter: "Ї", sound: izhak_sound, image: izhak, word: "Їжак" },
+    { letter: "Й", sound: ioghurt_sound, image: ioghurt, word: "Йогурт" },
+    { letter: "К", sound: kin_sound, image: kin, word: "Кінь" },
   ];
 
   return (
@@ -119,7 +124,7 @@ function AlphabetThree() {
             <div className={styles.photo_parametrs}>
               <img
                 className={styles.profile_photo}
-                src={children?.photo}
+                src={children?.photo || ponchik}
                 alt="baby"
               />
 

@@ -42,7 +42,7 @@ function FormsChild() {
     try {
       const photoExist = !!formData.photo;
       let url = "";
-      if(photoExist) {
+      if (photoExist) {
         const fileData = new FormData();
         fileData.append("", formData.photo);
         const { data } = await api.post("/upload", fileData);

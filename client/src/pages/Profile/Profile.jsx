@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import styles from "./Profile.module.css";
 import LayoutProfile from "../../components/LayoutProfile/LayoutProfile";
 import plus from "./images/plus.svg";
+import ponchik from "./images/ponchik.svg";
 import programi from "./images/programi.svg";
 import igri from "./images/igri.svg";
 import chitannya from "./images/chitannya.svg";
@@ -73,7 +74,7 @@ function Profile() {
             <div className={styles.photo_parametrs}>
               <img
                 className={styles.profile_photo}
-                src={children?.photo}
+                src={children?.photo || ponchik}
                 alt="baby"
               />
 

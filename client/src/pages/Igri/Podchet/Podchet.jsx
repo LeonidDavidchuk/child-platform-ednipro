@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import styles from "./Podchet.module.css";
 import LayoutProfile from "../../../components/LayoutProfile/LayoutProfile";
 import plus from "../../Profile/images/plus.svg";
+import ponchik from "./images/ponchik.svg";
 import programi_gray from "./images/programi_gray.svg";
 import igri_gray from "./images/igri_gray.svg";
 import chitannya_gray from "./images/chitannya_gray.svg";
@@ -81,7 +82,7 @@ function Podchet() {
             <div className={styles.photo_parametrs}>
               <img
                 className={styles.profile_photo}
-                src={children?.photo}
+                src={children?.photo || ponchik}
                 alt="baby"
               />
 

@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { Link } from "react-router-dom";
+import { UserContext } from "../../../UserContext";
 import styles from "./Alphabet.module.css";
 import LayoutProfile from "../../../components/LayoutProfile/LayoutProfile";
-import { useContext } from "react";
 import plus from "../../Profile/images/plus.svg";
+import ponchik from "./images/ponchik.svg";
 import programi_gray from "./images/programi_gray.svg";
 import igri_gray from "./images/igri_gray.svg";
 import chitannya_gray from "./images/chitannya_gray.svg";
@@ -12,16 +14,18 @@ import chitannya_active from "./images/chitannya_active.svg";
 import arrow from "./images/arrow.svg";
 import arrow_back from "./images/arrow_back.svg";
 import withAuth from "../../../components/WithAuth/WithAuth";
-import { UserContext } from "../../../UserContext";
-
-import akula from "./assets/sounds/akula.mp3";
 
 import riba from "./assets/pictures/riba.svg";
 import sir from "./assets/pictures/sir.svg";
 import tigr from "./assets/pictures/tigr.svg";
 import usmishka from "./assets/pictures/usmishka.svg";
 import farbi from "./assets/pictures/farbi.svg";
-import { Link } from "react-router-dom";
+
+import riba_sound from "./assets/sounds/riba_sound.m4a";
+import sir_sound from "./assets/sounds/sir_sound.m4a";
+import tigr_sound from "./assets/sounds/tigr_sound.m4a";
+import usmishka_sound from "./assets/sounds/usmishka_sound.m4a";
+import farbi_sound from "./assets/sounds/farbi_sound.m4a";
 
 function AlphabetFive() {
   const [activeButton, setActiveButton] = useState(0);
@@ -73,11 +77,11 @@ function AlphabetFive() {
   };
 
   const alphabet = [
-    { letter: "Р", sound: akula, image: riba, word: "Риба" },
-    { letter: "С", sound: akula, image: sir, word: "Сир" },
-    { letter: "Т", sound: akula, image: tigr, word: "Тигр" },
-    { letter: "У", sound: akula, image: usmishka, word: "Усмішка" },
-    { letter: "Ф", sound: akula, image: farbi, word: "Фарби" },
+    { letter: "Р", sound: riba_sound, image: riba, word: "Риба" },
+    { letter: "С", sound: sir_sound, image: sir, word: "Сир" },
+    { letter: "Т", sound: tigr_sound, image: tigr, word: "Тигр" },
+    { letter: "У", sound: usmishka_sound, image: usmishka, word: "Усмішка" },
+    { letter: "Ф", sound: farbi_sound, image: farbi, word: "Фарби" },
   ];
 
   return (
@@ -120,7 +124,7 @@ function AlphabetFive() {
             <div className={styles.photo_parametrs}>
               <img
                 className={styles.profile_photo}
-                src={children?.photo}
+                src={children?.photo || ponchik}
                 alt="baby"
               />
 

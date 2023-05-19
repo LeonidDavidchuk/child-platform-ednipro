@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useContext } from "react";
 import styles from "./Figuri.module.css";
+import ponchik from "./images/ponchik.svg";
 import LayoutProfile from "../../../components/LayoutProfile/LayoutProfile";
 import plus from "../../Profile/images/plus.svg";
 import programi_gray from "./images/programi_gray.svg";
@@ -82,7 +83,7 @@ function Figuri() {
             <div className={styles.photo_parametrs}>
               <img
                 className={styles.profile_photo}
-                src={children?.photo}
+                src={children?.photo || ponchik}
                 alt="baby"
               />
 

@@ -86,7 +86,7 @@ function Login() {
                 />
                 <input
                   className={styles.form}
-                  type="text"
+                  type="password"
                   placeholder="Пароль : "
                   name="password"
                   onChange={handleChange}

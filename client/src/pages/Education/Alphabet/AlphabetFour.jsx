@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { UserContext } from "../../../UserContext";
 import styles from "./Alphabet.module.css";
 import LayoutProfile from "../../../components/LayoutProfile/LayoutProfile";
 import { useContext } from "react";
+import ponchik from "./images/ponchik.svg";
 import plus from "../../Profile/images/plus.svg";
 import programi_gray from "./images/programi_gray.svg";
 import igri_gray from "./images/igri_gray.svg";
@@ -12,16 +15,18 @@ import chitannya_active from "./images/chitannya_active.svg";
 import arrow from "./images/arrow.svg";
 import arrow_back from "./images/arrow_back.svg";
 import withAuth from "../../../components/WithAuth/WithAuth";
-import { UserContext } from "../../../UserContext";
-
-import akula from "./assets/sounds/akula.mp3";
 
 import lavochka from "./assets/pictures/lavochka.svg";
 import mavpa from "./assets/pictures/mavpa.svg";
 import namisto from "./assets/pictures/namisto.svg";
 import okulyari from "./assets/pictures/okulyari.svg";
 import pich from "./assets/pictures/pich.svg";
-import { Link } from "react-router-dom";
+
+import lavochka_sound from "./assets/sounds/lavochka_sound.m4a";
+import mavpa_sound from "./assets/sounds/mavpa_sound.m4a";
+import namisto_sound from "./assets/sounds/namisto_sound.m4a";
+import okulyari_sound from "./assets/sounds/okulyari_sound.m4a";
+import pich_sound from "./assets/sounds/pich_sound.m4a";
 
 function AlphabetFour() {
   const [activeButton, setActiveButton] = useState(0);
@@ -73,11 +78,11 @@ function AlphabetFour() {
   };
 
   const alphabet = [
-    { letter: "Л", sound: akula, image: lavochka, word: "Лавочка" },
-    { letter: "М", sound: akula, image: mavpa, word: "Мавпа" },
-    { letter: "Н", sound: akula, image: namisto, word: "Намисто" },
-    { letter: "О", sound: akula, image: okulyari, word: "Окуляри" },
-    { letter: "П", sound: akula, image: pich, word: "Піч" },
+    { letter: "Л", sound: lavochka_sound, image: lavochka, word: "Лава" },
+    { letter: "М", sound: mavpa_sound, image: mavpa, word: "Мавпа" },
+    { letter: "Н", sound: namisto_sound, image: namisto, word: "Намисто" },
+    { letter: "О", sound: okulyari_sound, image: okulyari, word: "Окуляри" },
+    { letter: "П", sound: pich_sound, image: pich, word: "Піч" },
   ];
 
   return (
@@ -120,7 +125,7 @@ function AlphabetFour() {
             <div className={styles.photo_parametrs}>
               <img
                 className={styles.profile_photo}
-                src={children?.photo}
+                src={children?.photo || ponchik}
                 alt="baby"
               />
 
