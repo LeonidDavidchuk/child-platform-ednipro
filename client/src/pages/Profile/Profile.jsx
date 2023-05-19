@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Profile.module.css";
 import LayoutProfile from "../../components/LayoutProfile/LayoutProfile";
@@ -13,7 +12,6 @@ import { UserContext } from "../../UserContext";
 
 function Profile() {
   const [activeButton, setActiveButton] = useState(0);
-
   const { user } = useContext(UserContext);
   const firstName = user?.firstName || "User";
 
@@ -23,6 +21,7 @@ function Profile() {
 
   const children = user?.Children?.length ? user?.Children[activeButton] : [];
   const canAddMoreChildren = user?.Children?.length < 4;
+
 
   const getGender = (sexId) => {
     if (sexId === 1) {

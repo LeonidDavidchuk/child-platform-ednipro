@@ -334,10 +334,6 @@
   height: 1000px;
 }
 
-.picture_in_card_book {
-  margin-top: 300px;
-}
-
 .card_book {
   box-sizing: border-box;
   width: 439px;
@@ -347,6 +343,7 @@
   border-radius: 44px;
   position: relative;
   display: flex;
+  cursor: pointer;
   justify-content: center;
   align-items: center;
   padding-bottom: 25%;

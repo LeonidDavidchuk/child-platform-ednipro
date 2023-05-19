@@ -5,7 +5,7 @@ export default {
     database: 'database',
     host: 'localhost',
     dialect: 'mysql',
-    port: 8889
+    port: 3306
   },
   test: { 
     username: 'root',

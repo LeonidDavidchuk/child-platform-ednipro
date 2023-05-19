@@ -217,6 +217,7 @@ function Cards() {
         return (
           <div className={styles.cards_container}>
             {booksData.map((book) => (
+              <div>
               <div
                 key={book.id}
                 className={styles.card_book}
@@ -228,6 +229,7 @@ function Cards() {
                 <div className={styles.down_card}>
                   <span>{book.title}</span>
                 </div>
+              </div>
               </div>
             ))}
           </div>
