@@ -316,6 +316,8 @@
   background-color: white;
   width: 1000px;
   height: 600px;
+  justify-content: center;
+  align-items: center;
   position: relative;
 }
 
@@ -378,4 +380,10 @@
 
 .next_page {
   right: 10px;
+}
+
+
+.book_image {
+  width: 225px;
+  height: 300px;
 }

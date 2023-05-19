@@ -69,6 +69,8 @@ function Cards() {
     );
   };
 
+
+
   const children = user?.Children?.length ? user?.Children[activeButton] : [];
   const canAddMoreChildren = user?.Children?.length < 4;
 
@@ -152,7 +154,7 @@ function Cards() {
   const booksData = [
     {
       id: 1,
-      title: "Вика и Алик",
+      title: "Вiка та Алiк",
       category: "Читання та аудіокниги",
       pdf: book1,
       image: book1_image,
@@ -224,7 +226,7 @@ function Cards() {
                 onClick={() => handleBookClick(book.pdf)}
               >
                 <div className={styles.picture_in_card_book}>
-                  <img src={book.image} alt={book.title} />
+                  <img className={styles.book_image} src={book.image} alt={book.title} />
                 </div>
                 <div className={styles.down_card}>
                   <span>{book.title}</span>
