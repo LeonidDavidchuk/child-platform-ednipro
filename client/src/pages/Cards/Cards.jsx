@@ -177,6 +177,7 @@ function Cards() {
                 </div>
               ))}
             </div>
+
             <div className={styles.cards_container}>
               {filteredCards.map((card) => (
                 <a key={card.id} href={card.link}>
